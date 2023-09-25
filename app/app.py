@@ -2,10 +2,10 @@ from flask import Flask, render_template, request
 import pandas as pd
 from joblib import load 
 
-from utils.lung_utils import extract_lung_data, lung_columns, categorize_lung_risk
-from utils.breast_utils import extract_breast_data, breast_columns, categorize_breast_risk
-from utils.prostate_utils import extract_prostate_data, prostate_columns, categorize_prostate_risk
-from utils.colorectal_utils import extract_colorectal_data, colorectal_columns, categorize_colorectal_risk
+from app.utils.lung_utils import extract_lung_data, lung_columns, categorize_lung_risk
+from app.utils.breast_utils import extract_breast_data, breast_columns, categorize_breast_risk
+from app.utils.prostate_utils import extract_prostate_data, prostate_columns, categorize_prostate_risk
+from app.utils.colorectal_utils import extract_colorectal_data, colorectal_columns, categorize_colorectal_risk
 
 app = Flask(__name__)
 
