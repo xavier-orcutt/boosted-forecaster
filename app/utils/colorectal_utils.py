@@ -4,7 +4,7 @@ import math
 import pandas as pd
 
 # Get list of variables for lung model
-with open('data/colorectal_columns.csv', 'r') as csv_file:
+with open('app/data/colorectal_columns.csv', 'r') as csv_file:
     csv_reader = csv.reader(csv_file)
     for row in csv_reader:
         colorectal_columns = [str(item) for item in row]
@@ -162,7 +162,7 @@ def process_met_site(met_site_data):
 
     return result
 
-risk_cutoff_colorectal = pd.read_csv('data/risk_cutoff_colorectal.csv', index_col = 0)
+risk_cutoff_colorectal = pd.read_csv('app/data/risk_cutoff_colorectal.csv', index_col = 0)
 def categorize_colorectal_risk(trials, risk_score):
     risk_list = []
     for x in trials: 

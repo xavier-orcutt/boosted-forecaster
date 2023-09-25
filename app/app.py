@@ -15,7 +15,7 @@ def index():
     return render_template('index.html')
 
 # LUNG SECTION
-lung_model = load('models/gbm_final_lung.joblib')
+lung_model = load('app/models/gbm_final_lung.joblib')
 
 @app.route("/lung", methods =['GET', 'POST'])
 def lung_patient_info():
@@ -68,7 +68,7 @@ def lung_patient_info():
 
 
 # BREAST SECTION
-breast_model = load('models/gbm_final_breast.joblib')
+breast_model = load('app/models/gbm_final_breast.joblib')
 
 @app.route("/breast", methods =['GET', 'POST'])
 def breast_patient_info():
@@ -100,7 +100,7 @@ def breast_patient_info():
                                    bio_status = 'triple_negative')
         
 # PROSTATE SECTION
-prostate_model = load('models/gbm_final_prostate.joblib')
+prostate_model = load('app/models/gbm_final_prostate.joblib')
 
 @app.route("/prostate", methods =['GET', 'POST'])
 def prostate_patient_info():
@@ -124,7 +124,7 @@ def prostate_patient_info():
                                    bio_status = 'crpc')
         
 # COLORECTAL SECTION
-colorectal_model = load('models/gbm_final_colorectal.joblib')
+colorectal_model = load('app/models/gbm_final_colorectal.joblib')
 
 @app.route("/colorectal", methods =['GET', 'POST'])
 def colorectal_patient_info():
