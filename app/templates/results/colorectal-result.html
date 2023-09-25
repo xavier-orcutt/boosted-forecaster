@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Colorectal Results</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Colorectal risk results">
+        <meta name="author" content="Xavier Orcutt">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" type="text/css" href="../../static/css/mystyle.css">
+        <script src="../../static/scripts/myscripts.js"></script> 
+    </head>
+    
+    <body>
+        
+        <!-- HEADER -->
+        <header>
+            <h1>Colorectal Results</h1>
+        </header>
+        
+        <!-- KRAS WT -->
+        {% if bio_status == "kras_wt" %}
+        <div class="section-box">
+            <p>Risk level is <span class="{{ fire3_risk }}"> {{ fire3_risk  }} </span> when compared to patients in routine practice with KRAS wild-type metastatic disease who went on to receive first-line chemotherapy doublet with either cetuximab or bevacizumab.</p>
+            
+            <div class="space"></div>
+            
+            <p>Overall survival (OS) estimates for <span class="{{ fire3_risk  }}">{{ fire3_risk  }}</span> risk patients in routine practice:</p>
+            {% if fire3_risk  == "LOW" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/colorectal/fire3_low.png">
+                </div>
+            </div>
+            
+            {% elif fire3_risk  == "MEDIUM" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/colorectal/fire3_med.png">
+                </div>
+            </div>
+               
+            {% elif fire3_risk  == "HIGH"%}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/colorectal/fire3_high.png">
+                </div>
+            </div>
+            
+            {% endif %}
+            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045%2814%2970330-4/fulltext">FIRE-3</a> trial:</p>
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/colorectal/fire3_summary_rc.png">
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- NOT KRAS-WT -->
+        {% if bio_status == 'not_kras_wt' %}
+        <div class="section-box">
+            <p>Unable to risk stratify patients if they are not KRAS wild-type.</p>
+        </div>
+        {% endif %}
+
+        <div class="space-result"></div>
+        <button class="back-button" onclick="window.location.href='/breast'">Back to form</button>
+        <button class="home-button" onclick="window.location.href='/'">Home</button>
+        <script src="../../static/scripts/myscripts.js"></script>
+
+    </body>
+</html>
+      
+

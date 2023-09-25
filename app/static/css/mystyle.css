@@ -1,0 +1,196 @@
+header {
+    font-family: 'Montserrat', 'Helvetica', sans-serif;  
+    font-size: 30px;
+    font-style: oblique;
+    line-height: 1.2;
+    color: rgb(0, 0, 0);
+    display: block; 
+    text-align: center;
+    background-color: #f7f7f7; 
+    padding: 5px; 
+}
+
+body {
+    margin-left: 200px; /* Increase the left margin */
+    margin-right: 200px;
+    margin-top: 100px; /* Increase the left margin */
+    margin-bottom: 100px; /* Increase the right margin */
+}
+
+p {  
+    font-family: 'Georgia', serif;  
+    font-size: 16px;
+    color: rgb(62, 67, 73);
+    display: block;
+}  
+
+h2 {  
+    font-family: 'Montserrat', 'Helvetica', sans-serif;  
+    font-size: 24px;
+    color: rgb(0, 0, 0);
+    display: block; 
+    margin-bottom: 5px;
+}   
+
+h3 {  
+    font-family: 'Montserrat', 'Helvetica', sans-serif;  
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    display: block; 
+    margin-bottom: 5px;
+}   
+
+.cancer_type {  
+    font-family: 'Georgia', serif;  
+    font-size: 16px;
+    color: rgb(62, 67, 73);
+    display: block; 
+}   
+
+input[type="button"],
+.submit-button,
+.back-button, 
+.home-button {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover,
+.submit-button:hover,
+.back-button:hover, 
+.home-button:hover,
+.collapsible-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+input[type="button"],
+.back-button {
+    float: left;
+}
+
+.submit-button, 
+.home-button{
+    float: right;
+}
+
+.form_style1, 
+.form_style2,
+.form_style3 {
+    font-family: 'Georgia', serif;  
+    font-size: 16px;
+    color: rgb(62, 67, 73);
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    background-color: #f7f7f7; 
+}
+
+/* Entry field box width */
+.form_style1 input[type="number"],
+.form_style2 input[type="number"],
+.form_style1 select{
+  width: 50px; 
+}
+
+/* Entry field box width */
+.form_style3 input[type="number"]{
+  width: 80px; 
+}
+
+.vertical-opt label {
+   display: block;
+}
+
+.last-line {
+    margin-bottom: 10px !important;
+}
+
+.form_style1 .space,
+.form_style2 .space
+.form_style3 .space {
+    margin-bottom: 10px; 
+}
+
+.section-box .space {
+    margin-bottom: 30px; 
+}
+
+.space-result {
+    margin-bottom: 20px; 
+}
+
+.form_style2 {
+    margin-right: 20px; 
+}
+
+/* CSS for lining up radio buttons horizontally */
+.form_style2 label,
+.form_style3 label {
+    display: inline-block;
+    width: 250px; 
+    vertical-align: top; 
+    margin-bottom: 10px; 
+}
+
+.form_style2 input[type="radio"] {
+    display: inline-block;
+    vertical-align: top; 
+}
+
+.LOW {
+    font-size: 24px; 
+    color: green;   
+}
+
+.MEDIUM {
+    font-size: 24px; 
+    color: orange;  
+}
+
+.HIGH {
+    font-size: 24px; 
+    color: red;     
+}
+
+.section-box {
+    background-color: rgba(255, 255, 255, 0.7); /* Adjust the alpha (4th value) to control transparency */
+    padding: 20px;
+    border: 3px solid #ccc; 
+}
+
+.section-box p {
+    font-family: 'Georgia', serif;
+    font-size: 16px;
+    color: rgb(62, 67, 73);
+    display: block;
+    margin-bottom: 5px
+}
+
+.collapsible-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 20px; 
+    transition: background-color 0.3s;
+}
+
+.content {
+    display: none;
+    text-align: center; 
+}
+
+.content img {
+    display: inline-block; 
+    margin: 0 auto; 
+    max-width: 100%; 
+    height: auto;
+}
+
+
+

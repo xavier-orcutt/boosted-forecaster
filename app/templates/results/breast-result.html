@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Breast Results</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Breast risk results">
+        <meta name="author" content="Xavier Orcutt">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" type="text/css" href="../../static/css/mystyle.css">
+        <script src="../../static/scripts/myscripts.js"></script> 
+    </head>
+    
+    <body>
+        
+        <!-- HEADER -->
+        <header>
+            <h1>Breast Results</h1>
+        </header>
+        
+        <!-- HR POSITIVE -->
+        {% if bio_status == "hr_positive" %}
+
+        <!-- HR POSITIVE: PALOMA-2 -->
+        <div class="section-box">
+            <p>Risk level is <span class="{{ paloma2_risk }}"> {{ paloma2_risk }} </span> when compared to patients in routine practice with hormone receptor-positive, HER2-negative metastatic breast cancer who went on to receive first-line palbociclib plus letrozole or letrozole alone.</p>
+            
+            <div class="space"></div>
+            
+            <p>Progression fress survival (PFS) estimates for <span class="{{ paloma2_risk }}">{{ paloma2_risk }}</span> risk patients in routine practice:</p>
+            {% if paloma2_risk == "LOW" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma2_low.png">
+                </div>
+            </div>
+        
+            {% elif paloma2_risk == "MEDIUM" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma2_med.png">
+                </div>
+            </div>
+       
+            {% elif paloma2_risk == "HIGH"%}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma2_high.png">
+                </div>
+            </div>
+            {% endif %}
+        
+            <p>Comparing PFS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma2_summary_rc.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="space-result"></div>
+
+        <!-- HR POSITIVE: PALOMA-3 -->
+        <div class="section-box">
+            <p>Risk level is <span class="{{ paloma3_risk }}"> {{ paloma3_risk }} </span> when compared to patients in routine practice with hormone receptor-positive, HER2-negative metastatic breast cancer who had progressed during previous endocrine therapy and later on went to receive palbociclib plus fulvestrant or fulvestrant alone.</p>
+            <div class="space"></div>
+            
+            <p>Overall survival (OS) estimates for <span class="{{ paloma3_risk }}">{{ paloma3_risk }}</span> risk patients in routine practice:</p>
+            {% if paloma3_risk == "LOW" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma3_low.png">
+                </div>
+            </div>
+        
+            {% elif paloma3_risk == "MEDIUM" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma3_med.png">
+                </div>
+            </div>
+       
+            {% elif paloma3_risk == "HIGH"%}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma3_high.png">
+                </div>
+            </div>
+            {% endif %}
+        
+            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/paloma3_summary_rc.png">
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- HER2 POSITIVE -->
+        {% if bio_status == "her2_positive" %}
+        <div class="section-box">
+            <p>Risk level is <span class="{{ cleopatra_risk }}"> {{ cleopatra_risk }} </span> when compared to patients in routine practice with HER2-positive metastatic disease who went on to receive first-line trastuzumab, docetaxel, and +/- pertuzumab.</p>
+            
+            <div class="space"></div>
+
+            <p>Overall survival (OS) estimates for <span class="{{ cleopatra_risk }}">{{ cleopatra_risk }}</span> risk patients in routine practice:</p>
+            {% if cleopatra_risk == "LOW" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/cleopatra_low.png">
+                </div>
+            </div>
+
+            {% elif cleopatra_risk == "MEDIUM" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/cleopatra_med.png">
+                </div>
+            </div>
+       
+            {% elif cleopatra_risk == "HIGH"%}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/cleopatra_high.png">
+                </div>
+            </div>
+            {% endif %}
+
+            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/breast/cleopatra_summary_rc.png">
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- TRIPLE NEGATIVE -->
+        {% if bio_status == 'triple_negative' %}
+        <div class="section-box">
+            <p>Unable to risk stratify patients if they have triple negative disease or if ER/PR or HER2 status are unknown.</p>
+        </div>
+        {% endif %}
+
+        <div class="space-result"></div>
+        <button class="back-button" onclick="window.location.href='/breast'">Back to form</button>
+        <button class="home-button" onclick="window.location.href='/'">Home</button>
+        <script src="../../static/scripts/myscripts.js"></script>
+  
+    </body>
+</html>
+      
+

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NSCLC Results</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Lung risk result">
+    <meta name="author" content="Xavier Orcutt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../../static/css/mystyle.css"> 
+    <script src="../../static/scripts/myscripts.js"></script>
+  </head>
+  
+  <body>
+    
+    <!-- Header -->
+    <header>
+        <h1>NSCLC Results</h1>
+    </header>
+
+    <!-- EGFR POSITIVE -->
+    {% if bio_status == "egfr_positive" %}
+    <div class="section-box">
+      <p>Risk level is <span class="{{ flaura_risk }}"> {{ flaura_risk }} </span> when compared to patients in routine practice with EGFR mutation-positive disease who went on to receive first-line osimertinib or standard EGFR-TKI. {{form_data}}</p>
+
+      <div class="space"></div>
+
+      <p>Progression fress survival (PFS) estimates for <span class="{{ flaura_risk }}">{{ flaura_risk }}</span> risk patients in routine practice:</p>
+      {% if flaura_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/flaura_low.png">
+        </div>
+      </div>
+
+      {% elif flaura_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/flaura_med.png">
+        </div>
+      </div>
+       
+      {% elif flaura_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/flaura_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing PFS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/flaura_summary_rc.png">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- LOW PDL1 -->
+    {% if bio_status == 'pdl1_low' %}
+
+    <!-- LOW PDL1: KEYNOTE-189 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ key189_risk }}"> {{ key189_risk }} </span> when compared to patients in routine practice who receive first-line chemotherapy plus pembrolizumab or chemotherapy alone regardless of PDL1 status.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ key189_risk }}">{{ key189_risk }}</span> risk patients in routine practice:</p>
+      {% if key189_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_low.png">
+        </div>
+      </div>
+
+      {% elif key189_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_med.png">
+        </div>
+      </div>
+       
+      {% elif key189_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_summary_rc.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="space-result"></div>
+
+    <!-- LOW PDL1: KEYNOTE-042 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ key042_risk }}"> {{ key042_risk }} </span> when compared to patients in routine practice who receive first-line pembrolizumab or chemotherapy alone and PDL1 &ge;1%.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ key042_risk }}">{{ key042_risk }}</span> risk patients in routine practice:</p>
+      {% if key042_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_low.png">
+        </div>
+      </div>
+
+      {% elif key042_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_med.png">
+        </div>
+      </div>
+       
+      {% elif key042_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_summary_rc.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="space-result"></div>
+
+    <!-- LOW PDL1: CHECKMATE-078 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ check_risk }}"> {{ check_risk }} </span> when compared to patients in routine practice who progressed after platinum-based chemotherapy and later received nivolumab or docetaxel.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ check_risk }}">{{ check_risk }}</span> risk patients in routine practice:</p>
+      {% if check_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_low.png">
+        </div>
+      </div>
+
+      {% elif check_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_med.png">
+        </div>
+      </div>
+       
+      {% elif check_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_summary_rc.png">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- HIGH PDL1 -->
+    {% if bio_status == 'pdl1_high' %}
+
+    <!-- HIGH PDL1: KEYNOTE-189 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ key189_risk }}"> {{ key189_risk }} </span> when compared to patients in routine practice who receive first-line chemotherapy plus pembrolizumab or chemotherapy alone regardless of PDL1 status.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ key189_risk }}">{{ key189_risk }}</span> risk patients in routine practice:</p>
+      {% if key189_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_low.png">
+        </div>
+      </div>
+
+      {% elif key189_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_med.png">
+        </div>
+      </div>
+       
+      {% elif key189_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_summary_rc.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="space-result"></div>
+
+    <!-- HIGH PDL1: KEYNOTE-024 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ key024_risk }}"> {{ key024_risk }} </span> when compared to patients in routine practice who receive first-line pembrolizumab or chemotherapy alone and PDL1 &ge;50%.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ key024_risk }}">{{ key024_risk }}</span> risk patients in routine practice:</p>
+      {% if key024_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key024_low.png">
+        </div>
+      </div>
+
+      {% elif key024_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key024_med.png">
+        </div>
+      </div>
+       
+      {% elif key024_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key024_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key024_summary_rc.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="space-result"></div>
+
+    <!-- HIGH PDL1: KEYNOTE-042 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ key042_risk }}"> {{ key042_risk }} </span> when compared to patients in routine practice who receive first-line pembrolizumab or chemotherapy alone and PDL1 &ge;1%.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ key042_risk }}">{{ key042_risk }}</span> risk patients in routine practice:</p>
+      {% if key042_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_low.png">
+        </div>
+      </div>
+
+      {% elif key042_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_med.png">
+        </div>
+      </div>
+       
+      {% elif key042_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key042_summary_rc.png">
+        </div>
+      </div>
+    </div>
+
+    <div class="space-result"></div>
+
+    <!-- HIGH PDL1: CHECKMATE-078 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ check_risk }}"> {{ check_risk }} </span> when compared to patients in routine practice who progressed after platinum-based chemotherapy and later received nivolumab or docetaxel.</p>
+
+      <div class="space"></div>
+
+      <p>Overall survival (OS) estimates for <span class="{{ check_risk }}">{{ check_risk }}</span> risk patients in routine practice:</p>
+      {% if check_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_low.png">
+        </div>
+      </div>
+
+      {% elif check_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_med.png">
+        </div>
+      </div>
+       
+      {% elif check_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_high.png">
+        </div>
+      </div>
+      {% endif %}
+
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_summary_rc.png">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ZERO OR UNKNOWN PDL1 -->
+    {% if bio_status == 'pdl1_zna' %}
+
+    <!-- ZERO OR UNKNOWN PDL1: KEYNOTE-189 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ key189_risk }}"> {{ key189_risk }} </span> when compared to patients in routine practice who receive first-line chemotherapy plus pembrolizumab or chemotherapy alone regardless of PDL1 status.</p>
+      
+      <div class="space"></div>
+      
+      <p>Overall survival (OS) estimates for <span class="{{ key189_risk }}">{{ key189_risk }}</span> risk patients in routine practice:</p>
+      {% if key189_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_low.png">
+        </div>
+      </div>
+      
+      {% elif key189_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_med.png">
+        </div>
+      </div>
+        
+      {% elif key189_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_high.png">
+        </div>
+      </div>
+      {% endif %}
+ 
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/key189_summary_rc.png">
+        </div>
+      </div>
+    </div>
+ 
+    <div class="space-result"></div>
+ 
+    <!-- ZERO OR UNKNOWN PDL1: CHECKMATE-078 -->
+    <div class="section-box">
+      <p>Risk level is <span class="{{ check_risk }}"> {{ check_risk }} </span> when compared to patients in routine practice who progressed after platinum-based chemotherapy and later received nivolumab or docetaxel.</p>
+ 
+      <div class="space"></div>
+ 
+      <p>Overall survival (OS) estimates for <span class="{{ check_risk }}">{{ check_risk }}</span> risk patients in routine practice:</p>
+      {% if check_risk == "LOW" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_low.png">
+        </div>
+      </div>
+ 
+      {% elif check_risk == "MEDIUM" %}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_med.png">
+        </div>
+      </div>
+        
+      {% elif check_risk == "HIGH"%}
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_high.png">
+        </div>
+      </div>
+      {% endif %}
+ 
+      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
+      <div class="collapsible">
+        <button class="collapsible-button">Show/Hide Image</button>
+        <div class="content">
+          <img src="../../static/images/lung/check_summary_rc.png">
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!-- ALK POSITIVE -->
+    {% if bio_status == 'alk_positive' %}
+    <div class="section-box">
+      <p>Unable to risk stratify patients that are ALK positive.</p>
+    </div>
+    {% endif %}
+
+    <div class="space-result"></div>
+    <button class="back-button" onclick="window.location.href='/lung'">Back to form</button>
+    <button class="home-button" onclick="window.location.href='/'">Home</button>
+    <script src="../../static/scripts/myscripts.js"></script>
+  
+  </body>
+</html>
+      
+

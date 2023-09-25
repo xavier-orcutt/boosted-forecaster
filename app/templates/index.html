@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Boosted Forecaster</title>
+    
+    <meta charset="UTF-8">
+    <meta name="description" content="Risk stratifies cancer patients using a machine learning survival model">
+    <meta name="author" content="Xavier Orcutt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../static/css/mystyle.css"> 
+    <script src="../static/scripts/myscripts.js"></script>
+  </head>
+  
+  <body>
+    <header>
+      <h1>Boosted Forecaster</h1>
+    </header>
+    
+    <p>Welcome to <em>Boosted Forecaster</em>! This tool risk stratifies patients with newly diagnosed metastatic cancer. Based on a patient's risk and biomarkers, it then provides survival estimates for novel cancer therapies and compares it landmark randomzied controlled trial results.</p>
+
+    <p>This tool uses cancer-specific gradient-boosted survival models to estimate risk. For more information see paper and <a href = "https://github.com/xavier-orcutt/rct_generalizability_flatiron">project code</a>.</p>
+    
+    <h2>Select cancer type:</h2>
+    <form class="cancer_type">
+      <input type="radio" name="cancer" value="lung" checked="checked"> Advanced NSCLC<br>
+      <input type="radio" name="cancer" value="breast"> Metastatic Breast Cancer<br>
+      <input type="radio" name="cancer" value="prostate"> Metastatic Prostate Cancer<br>
+      <input type="radio" name="cancer" value="colorectal"> Metastatic Colorectal Cancer<br>
+      <br>
+      <input type="button" value="Next" onclick="redirectToForm()">
+    </form>
+
+  </body>
+</html>

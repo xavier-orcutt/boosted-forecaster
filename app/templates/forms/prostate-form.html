@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prostate Form</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Form page to enter prostate cancer patient data">
+    <meta name="author" content="Xavier Orcutt">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="../../static/css/mystyle.css"> 
+  </head>
+  
+  <body>
+    
+    <!-- Header -->
+    <header>
+      <h1>Prostate Form</h1>
+    </header>
+    <p>Enter as much information about the patient as possible. Only variables from the first 3 sections are necessary for risk stratification.</p>
+      
+    <p>Select the variable value closest to time of metastatic diagnosis, ideally within 30 days.</p>
+    
+    <p>The top 5 most predictive variables for the prostate machine learning model were: (1) age, (2) castrate-resistance, (3) hemoglobin, (4) weight change, and (5) maximum ALP.</p>
+    
+    <!-- Breast Form -->
+    <form action="/prostate" method="POST">
+      
+      <!-- Demographic section -->
+      <h2>1. Demographics</h2>
+      <div class = "form_style1">
+        
+        <label> Age at time of metastatic diagnosis: </label>
+        <input type="number" name="age" min="18" required>
+      
+        <div class="space"></div>
+      
+        <div class="vertical-opt">
+          <label> Race: </label>
+          <label><input type="radio" name="race" value="white" checked="checked"> White </label>
+          <label><input type="radio" name="race" value="black"> Black </label>
+          <label><input type="radio" name="race" value="asian"> Asian </label>
+          <label><input type="radio" name="race" value="other"> Other </label>
+          <label class="last-line"><input type="radio" name="race" value="unknown"> Unknown </label>
+        </div>
+      
+        <div class="vertical-opt">
+          <label> Ethnicity:</label>
+          <label><input type="radio" name="ethnicity" value="not_hispanic_latino" checked="checked"> Not hispanic/latino </label>
+          <label class="last-line"><input type="radio" name="ethnicity" value="hispanic_latino"> Hispanic/latino </label>
+        </div>
+
+        <div class="vertical-opt">
+          <label> Practice type:</label>
+          <label><input type="radio" name="p_type" value="COMMUNITY" checked="checked"> Community </label>
+          <label class="last-line"><input type="radio" name="p_type" value="ACADEMIC"> Academic </label>
+        </div>
+
+        <div class="vertical-opt">
+          <label> Insurance:</label>
+          <label><input type="checkbox" name="insurance" value="commercial"> Commercial </label>
+          <label><input type="checkbox" name="insurance" value="medicare"> Medicare </label>
+          <label><input type="checkbox" name="insurance" value="medicaid"> Medicaid </label>
+          <label><input type="checkbox" name="insurance" value="other"> Other </label>
+        </div>
+      </div>
+
+      <!-- Cancer characteristic section -->
+      <h2>2. Cancer characteristics</h2>
+      <div class="form_style1">
+        
+        <label>Stage at first diagnosis:</label>
+        <select name="stage" size="1" required>
+          <option value="IV">IV</option>
+          <option value="III">III</option>
+          <option value="II">II</option>
+          <option value="I">I</option>
+          <option value="unknown">Unknown</option>
+        </select>
+        <br>
+
+        <div class="space"></div>
+
+        <label>Gleason score at first diagnosis:</label>
+        <select name="GleasonScore" size="1" required>
+          <option value="Unknown / Not documented">Unknown</option>
+          <option value="10">10</option>
+          <option value="9">9</option>
+          <option value="8">8</option>
+          <option value="4 + 3 = 7">4 + 3 = 7</option>
+          <option value="3 + 4 = 7">3 + 4 = 7</option>
+          <option value="Less than or equal to 6"> &le;6</option>
+        </select>
+        <br>
+
+        <div class="space"></div>
+
+        <div class="vertical-opt">
+          <label>Node (N) stage at first diagnosis:</label>
+          <label><input type="radio" name="NStage" value="N0"> N0 </label>
+          <label><input type="radio" name="NStage" value="N1"> N1 </label>
+          <label><input type="radio" name="NStage" value="NX"> NX </label>
+          <label class="last-line"><input type="radio" name="NStage" value="Unknown / Not documented" checked="checked"> Unknown </label>
+        </div>
+
+        <label>Year of metastatic diagnosis:</label>
+        <input type="number" name="met_year" min="2013" placeholder="YYYY" required>
+        <br>
+
+        <div class="space"></div>
+
+        <label>Time from diagnosis to metastatic disease (days):</label>
+        <input type="number" name="delta_met_diagnosis" min="0" value="0" required>
+        <br>
+
+        <div class="space"></div>
+
+        <div class="vertical-opt">
+          <label> Site of metastases:</label>
+          <label><input type="checkbox" name="met_site" value="lymph_met"> Distant lymph node </label>
+          <label><input type="checkbox" name="met_site" value="bone_met"> Bone </label>
+          <label><input type="checkbox" name="met_site" value="cns_met"> CNS </label>
+          <label><input type="checkbox" name="met_site" value="liver_met"> Liver </label>
+          <label><input type="checkbox" name="met_site" value="peritoneum_met"> Peritoneum </label>
+          <label><input type="checkbox" name="met_site" value="other_gi_met"> Other GI </label>
+          <label><input type="checkbox" name="met_site" value="kidney_bladder_met"> Kidney or bladder </label>
+          <label class="last-line"> <input type="checkbox" name="met_site" value="other_met"> Other </label>
+        </div>
+
+        <div class="vertical-opt">
+          <label> Castrate resistant at time of metastatic diagnosis?</label>
+          <label><input type="radio" name="crpc" value="0" checked = "checked"> No </label>
+          <label class="last-line"><input type="radio" name="crpc" value="1"> Yes</label>
+        </div>
+
+        <label>How long have they been castrate resistant prior to metastatic diagnosis (days):</label>
+        <input type="number" name="crpc_time" min="0" value="0" required>
+        <br>
+
+        <div class="space"></div>
+
+        <div class="vertical-opt">
+          <label> Did they receive any of the following treatments prior to metastatic diagnosis?</label>
+          <label><input type="radio" name="prim_treatment" value="unknown" checked="checked"> None </label>
+          <label><input type="radio" name="prim_treatment" value="prostatectomy"> Prostatectomy </label>
+          <label><input type="radio" name="prim_treatment" value="radiation" > Radiation </label>
+          <label class="last-line"><input type="radio" name="prim_treatment" value="other" > Other </label>
+        </div>
+
+        <div class="vertical-opt">
+          <label> Did they receive ADT prior to metastatic diagnosis?</label>
+          <label><input type="radio" name="early_adt" value="0" checked="checked"> No </label>
+          <label class="last-line"><input type="radio" name="early_adt" value="1"> Yes</label>
+        </div>
+
+        <div class="vertical-opt">
+          <label> BRCA status:</label>
+          <label><input type="radio" name="brca_status" value="unknown" checked="checked"> Unknown</label>
+          <label><input type="radio" name="brca_status" value="positive"> Positive </label>
+          <label class="last-line"><input type="radio" name="brca_status" value="negative"> Negative </label>
+        </div>
+      </div>
+
+      <!-- Weight and ECOG section -->
+      <h2>3. Weight and ECOG</h2>
+      
+      <div class="form_style1">
+        
+        <label>Weight (kg):</label>
+        <input type="number" name="weight_diag" min=0 placeholder="kg" required>
+        <br>
+      
+        <div class="space"></div>
+      
+        <label>BMI:</label>
+        <input type="number" name="bmi_diag" min=15 max=40 required>
+        <br>
+      
+        <div class="space"></div>
+      
+        <label>Percent change in kg in the first 3 months (eg., 10% weight loss  = -0.1):</label>
+        <input type="number" name="weight_pct_change" value = 0 step=0.01 required>
+        <br>
+      
+        <div class="space"></div>
+      
+        <label>ECOG:</label>
+        <select name="ecog_diagnosis" size="1" required>
+          <option value="0.0">0</option>
+          <option value="1.0">1</option>
+          <option value="2.0">2</option>
+          <option value="3.0">3</option>
+          <option value="4">4</option>
+        </select>
+        <br>
+      </div>
+
+      <!-- Past medical history section -->
+      <h2>4. Past medical history </h2>
+      <p>Select if patient has any of the following comorbidities. Other cancer includes all cancers except benign neoplasms of the skin.</p>
+      <div class="form_style2">
+
+        <label> Congestive heart failure:</label>
+        <input type="radio" name="chf" value=0 checked> No
+        <input type="radio" name="chf" value=1> Yes
+        <br>
+
+        <label> Cardiac arrhythmias:</label>
+        <input type="radio" name="cardiac_arrhythmias" value=0 checked> No
+        <input type="radio" name="cardiac_arrhythmias" value=1> Yes
+        <br>
+
+        <label> Valvular disease:</label>
+        <input type="radio" name="valvular_disease" value=0 checked> No
+        <input type="radio" name="valvular_disease" value=1> Yes
+        <br>
+
+        <label> Pulmonary circulation disorders:</label>
+        <input type="radio" name="pulmonary_circulation" value=0 checked> No
+        <input type="radio" name="pulmonary_circulation" value=1> Yes
+        <br>
+
+        <label> Peripheral vascular disorders:</label>
+        <input type="radio" name="peripheral_vascular" value=0 checked> No
+        <input type="radio" name="peripheral_vascular" value=1> Yes
+        <br>
+
+        <label> Hypertension, uncomplicated:</label>
+        <input type="radio" name="htn_uncomplicated" value=0 checked> No
+        <input type="radio" name="htn_uncomplicated" value=1> Yes
+        <br>
+
+        <label> Hypertension, complicated:</label>
+        <input type="radio" name="htn_complicated" value=0 checked> No
+        <input type="radio" name="htn_complicated" value=1> Yes
+        <br>
+
+        <label> Paralysis:</label>
+        <input type="radio" name="paralysis" value=0 checked> No </label>
+        <input type="radio" name="paralysis" value=1> Yes </label>
+        <br>
+
+        <label> Other neurologic disorders:</label>
+        <input type="radio" name="other_neuro_disorders" value=0 checked> No </label>
+        <input type="radio" name="other_neuro_disorders" value=1> Yes </label>
+        <br>
+
+        <label> Chronic pulmonary disease:</label>
+        <input type="radio" name="chronic_pulmonary" value=0 checked> No </label>
+        <input type="radio" name="chronic_pulmonary" value=1> Yes </label>
+        <br>
+
+        <label> Diabetes, uncomplicated:</label>
+        <input type="radio" name="diabetes_uncomplicated" value=0 checked> No
+        <input type="radio" name="diabetes_uncomplicated" value=1> Yes
+        <br>
+
+        <label> Diabetes, complicated:</label>
+        <input type="radio" name="diabetes_complicated" value=0 checked> No
+        <input type="radio" name="diabetes_complicated" value=1> Yes
+        <br>
+
+        <label> Hypothyroidism:</label>
+        <input type="radio" name="hypothyroidism" value=0 checked> No
+        <input type="radio" name="hypothyroidism" value=1> Yes
+        <br>
+
+        <label> Renal failure:</label>
+        <input type="radio" name="renal_failure" value=0 checked> No
+        <input type="radio" name="renal_failure" value=1> Yes
+        <br>
+
+        <label> Liver disease:</label>
+        <input type="radio" name="liver_disease" value=0 checked> No
+        <input type="radio" name="liver_disease" value=1> Yes
+        <br>
+
+        <label> Peptic ulcer disease:</label>
+        <input type="radio" name="peptic_ulcer_disease" value=0 checked> No
+        <input type="radio" name="peptic_ulcer_disease" value=1> Yes
+        <br>
+
+        <label> AIDS/HIV:</label>
+        <input type="radio" name="aids_hiv" value=0 checked> No
+        <input type="radio" name="aids_hiv" value=1> Yes
+        <br>
+
+        <label> Lymphoma:</label>
+        <input type="radio" name="lymphoma" value=0 checked> No
+        <input type="radio" name="lymphoma" value=1> Yes
+        <br>
+
+        <label> Rheumatoid arthritis:</label>
+        <input type="radio" name="rheumatoid_arthritis" value=0 checked> No
+        <input type="radio" name="rheumatoid_arthritis" value=1> Yes
+        <br>
+
+        <label> Coagulopathy:</label>
+        <input type="radio" name="coagulopathy" value=0 checked> No
+        <input type="radio" name="coagulopathy" value=1> Yes
+        <br>
+
+        <label> Obesity:</label>
+        <input type="radio" name="obesity" value=0 checked> No
+        <input type="radio" name="obesity" value=1> Yes
+        <br>
+
+        <label> Weight loss:</label>
+        <input type="radio" name="weight_loss" value=0 checked> No
+        <input type="radio" name="weight_loss" value=1> Yes
+        <br>
+
+        <label> Fluid and electorlyte disorders:</label>
+        <input type="radio" name="fluid_electrolyte" value=0 checked> No
+        <input type="radio" name="fluid_electrolyte" value=1> Yes
+        <br>
+
+        <label> Blood loss anemia:</label>
+        <input type="radio" name="blood_loss_anemia" value=0 checked> No
+        <input type="radio" name="blood_loss_anemia" value=1> Yes
+        <br>
+
+        <label> Deficiency anemia:</label>
+        <input type="radio" name="deficiency_anemia" value=0 checked> No
+        <input type="radio" name="deficiency_anemia" value=1> Yes
+        <br>
+
+        <label> Alcohol abuse:</label>
+        <input type="radio" name="alcohol_abuse" value=0 checked> No
+        <input type="radio" name="alcohol_abuse" value=1> Yes
+        <br>
+
+        <label> Drug abuse:</label>
+        <input type="radio" name="drug_abuse" value=0 checked> No
+        <input type="radio" name="drug_abuse" value=1> Yes
+        <br>
+
+        <label> Psychoses:</label>
+        <input type="radio" name="psychoses" value=0 checked> No
+        <input type="radio" name="psychoses" value=1> Yes
+        <br>
+
+        <label> Depression:</label>
+        <input type="radio" name="depression" value=0 checked> No
+        <input type="radio" name="depression" value=1> Yes
+        <br>
+
+        <label> Other medical problems:</label>
+        <input type="radio" name="elixhauser_other" value=0 checked> No
+        <input type="radio" name="elixhauser_other" value=1> Yes
+        <br>
+
+        <label> Other cancer:</label>
+        <input type="radio" name="other_cancer" value=0 checked> No
+        <input type="radio" name="other_cancer" value=1> Yes
+        <br>
+
+        <label> Number of medical diagnoses:</label>
+        <input type="number" name="icd_count" min="0", required value="0" >
+        <br>
+
+      </div>
+
+      <!-- Medication section -->
+      <h2>5. Medications</h2>
+      <p>Select if patient received any of the following medications near time of metastatic diagnosis but prior to start of first line of treatment.</p>
+
+      <div class="form_style2">
+
+        <label> Steroids:</label>
+        <input type="radio" name="steroid_diag" value=0 checked> No
+        <input type="radio" name="steroid_diag" value=1> Yes
+        <br>
+
+        <label> Opioids, oral:</label>
+        <input type="radio" name="opioid_PO_diag" value=0 checked> No
+        <input type="radio" name="opioid_PO_diag" value=1> Yes
+        <br>
+
+        <label> Other pain meds, oral:</label>
+        <input type="radio" name="nonopioid_PO_diag" value=0 checked> No
+        <input type="radio" name="nonopioid_PO_diag" value=1> Yes
+        <br>
+
+        <label> Pain meds, IV:</label>
+        <input type="radio" name="pain_IV_diag" value=0 checked> No
+        <input type="radio" name="pain_IV_diag" value=1> Yes
+        <br>
+
+        <label> Anticoagulation:</label>
+        <input type="radio" name="ac_diag" value=0 checked> No
+        <input type="radio" name="ac_diag" value=1> Yes
+        <br>
+
+        <label> Antibiotic, IV:</label>
+        <input type="radio" name="antiinfective_IV_diag" value=0 checked> No
+        <input type="radio" name="antiinfective_IV_diag" value=1> Yes
+        <br>
+
+        <label> Antibiotic, oral:</label>
+        <input type="radio" name="antiinfective_diag" value=0 checked> No
+        <input type="radio" name="antiinfective_diag" value=1> Yes
+        <br>
+
+        <label> Diabetes medication:</label>
+        <input type="radio" name="antihyperglycemic_diag" value=0 checked> No
+        <input type="radio" name="antihyperglycemic_diag" value=1> Yes
+        <br>
+
+        <label> Proton pump inhibitor:</label>
+        <input type="radio" name="ppi_diag" value=0 checked> No
+        <input type="radio" name="ppi_diag" value=1> Yes
+        <br>
+
+        <label> Antidepressant:</label>
+        <input type="radio" name="antidepressant_diag" value=0 checked> No
+        <input type="radio" name="antidepressant_diag" value=1> Yes
+        <br>
+
+        <label> Bone therapy agent:</label>
+        <input type="radio" name="bta_diag" value=0 checked> No
+        <input type="radio" name="bta_diag" value=1> Yes
+        <br>
+
+        <label> Levothyroxine:</label>
+        <input type="radio" name="thyroid_diag" value=0 checked> No
+        <input type="radio" name="thyroid_diag" value=1> Yes
+        <br>
+
+        <label> Immunosuppresant:</label>
+        <input type="radio" name="is_diag" value=0 checked> No
+        <input type="radio" name="is_diag" value=1> Yes
+        <br>
+
+      </div>
+
+      <!-- Lab section -->
+      <h2>6. Labs</h2>
+      <p>Enter lab value closest to time of metastatic diagnosis. For summary labs, the value can be selected anytime before metastatic diagnosis.</p>
+
+        <h3>Cancer specific labs</h3>
+        <div class="form_style3">
+
+          <label>PSA at first diagnosis:</label>
+          <input type="number" name="PSADiagnosis" min=0 placeholder="ng/mL">
+          <br>
+
+          <label>PSA at metastatic diagnosis:</label>
+          <input type="number" name="PSAMetDiagnosis" min=0 placeholder="ng/mL">
+        </div>
+
+        <h3>Complete metabolic panel</h3>
+        <div class="form_style3">
+
+          <label>BUN:</label>
+          <input type="number" name="bun_diag" min=0 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Bicarbonate:</label>
+          <input type="number" name="bicarb_diag" min=0 placeholder="mmol/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Chloride:</label>
+          <input type="number" name="chloride_diag" min=90 placeholder="mmol/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Creatinine:</label>
+          <input type="number" name="creatinine_diag" min=0 max=10 step=0.1 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Potassium:</label>
+          <input type="number" name="potassium_diag" min=0 max=10 step=0.1 placeholder="mmol/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Sodium:</label>
+          <input type="number" name="sodium_diag" min=110 placeholder="mmol/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Calcium:</label>
+          <input type="number" name="calcium_diag" min=5 step=0.1 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>AST:</label>
+          <input type="number" name="ast_diag" min=5 step=1 placeholder="U/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>ALT:</label>
+          <input type="number" name="alt_diag" min=5 step=1 placeholder="U/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Alkaline phosphatase:</label>
+          <input type="number" name="alp_diag" min=5 step=0.1 placeholder="U/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Total bilirubin:</label>
+          <input type="number" name="total_bilirubin_diag" min=0 step=0.1 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Albumin:</label>
+          <input type="number" name="albumin_diag" min=2 step=0.1 placeholder="g/dL">
+          <br>
+        </div>
+
+        <h3>Complete blood count</h3>
+        <div class="form_style3">
+
+          <label>WBC:</label>
+          <input type="number" name="wbc_diag" min=0 step=0.1 placeholder="10*9/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label> Neutrophil count:</label>
+          <input type="number" name="neutrophil_count_diag" min=0 step=0.1 placeholder="10*9/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Hemoglobin:</label>
+          <input type="number" name="hemoglobin_diag" min=4 step=0.1 placeholder="g/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Platelet:</label>
+          <input type="number" name="platelet_diag" min=0 step=1 placeholder="mg/dL">
+          <br>
+      
+        </div>
+
+        <h3>Summary labs</h3>
+        <div class="form_style3">
+          
+          <label>PSA, max:</label>
+          <input type="number" name="psa_max" min=0 step=0.1 placeholder="ng/mL">
+          <br>
+
+          <label>PSA, slope:</label>
+          <input type="number" name="psa_slope" min=0 step=0.01 placeholder="ng/mL/d">
+          <br>
+
+          <label>Bicarbonate, min:</label>
+          <input type="number" name="bicarb_min" min=0 step=1 placeholder="mmol/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Creatinine, max:</label>
+          <input type="number" name="creatinine_max" min=0 max=10 step=0.1 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Sodium, min:</label>
+          <input type="number" name="sodium_min" min=110 step=1 placeholder="mmol/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Calcium, max:</label>
+          <input type="number" name="calcium_max" min=5 step=0.1 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>AST, max:</label>
+          <input type="number" name="ast_max" min=5 step=1 placeholder="U/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>ALT, max:</label>
+          <input type="number" name="alt_max" min=5 step=1 placeholder="U/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Alkaline phosphatase, max:</label>
+          <input type="number" name="alp_max" min=5 step=0.1 placeholder="U/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Total bilirubin, max:</label>
+          <input type="number" name="total_bilirubin_max" min=0 step=0.1 placeholder="mg/dL">
+          <br>
+
+          <div class="space"></div>
+          
+          <label>Albumin, min:</label>
+          <input type="number" name="albumin_min" min=2 step=0.1 placeholder="g/dL">
+          <br>
+          
+          <div class="space"></div>
+
+          <label>WBC, max:</label>
+          <input type="number" name="wbc_max" min=0 step=0.1 placeholder="10*9/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>WBC, min:</label>
+          <input type="number" name="wbc_min" min=0 step=0.1 placeholder="10*9/L">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Hemoglobin, min:</label>
+          <input type="number" name="hemoglobin_min" min=4 step=0.1 placeholder="g/dL">
+          <br>
+
+          <div class="space"></div>
+
+          <label>Platelet, min:</label>
+          <input type="number" name="platelet_min" min=0 step=1 placeholder="mg/dL">
+          <br>
+
+        </div>
+      
+      <input type="hidden" name="form_id" value="lung_form">
+
+      <button class="submit-button" type="submit">Submit</button>
+      <button class="back-button" onclick="window.location.href='/'">Back</button>
+
+    </form>
+  
+  </body>
+
+</html>

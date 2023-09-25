@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Prostate Results</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Prostate risk results">
+        <meta name="author" content="Xavier Orcutt">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" type="text/css" href="../../static/css/mystyle.css">
+        <script src="../../static/scripts/myscripts.js"></script> 
+    </head>
+    
+    <body>
+        
+        <!-- HEADER -->
+        <header>
+            <h1>Prostate Results</h1>
+        </header>
+        
+        <!-- CASTRATE SENSITIVE -->
+        {% if bio_status == "hspc" %}
+
+        <!-- CASTRATE SENSITIVE: CHAARTED -->
+        <div class="section-box">
+            <p>Risk level is <span class="{{ chaarted_risk }}"> {{ chaarted_risk }} </span> when compared to patients in routine practice with metastatic hormonse-sensitive prostate cancer who went on to receive first-line ADT +/- docetaxel.</p>
+            
+            <div class="space"></div>
+            
+            <p>Overall survival (OS) estimates for <span class="{{ chaarted_risk }}">{{ chaarted_risk }}</span> risk patients in routine practice:</p>
+            {% if chaarted_risk == "LOW" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/chaarted_low.png">
+                </div>
+            </div>
+        
+            {% elif chaarted_risk == "MEDIUM" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/chaarted_med.png">
+                </div>
+            </div>
+       
+            {% elif chaarted_risk == "HIGH"%}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/chaarted_high.png">
+                </div>
+            </div>
+            {% endif %}
+        
+            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/chaarted_summary_rc.png">
+                </div>
+            </div>
+        </div>
+
+        <div class="space-result"></div>
+
+        <!-- CASTRATE SENSITIVE: LATITUDE -->
+        <div class="section-box">
+            <p>Risk level is <span class="{{ latitude_risk }}"> {{ latitude_risk }} </span> when compared to patients in routine practice with metastatic hormone-sensitive prostate cancer who went on to receive first-line ADT +/- abiraterone.</p>
+            <div class="space"></div>
+            
+            <p>Overall survival (OS) estimates for <span class="{{ latitude_risk }}">{{ latitude_risk }}</span> risk patients in routine practice:</p>
+            {% if latitude_risk == "LOW" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/latitude_low.png">
+                </div>
+            </div>
+        
+            {% elif latitude_risk == "MEDIUM" %}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/latitude_med.png">
+                </div>
+            </div>
+       
+            {% elif latitude_risk == "HIGH"%}
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/latitude_high.png">
+                </div>
+            </div>
+            {% endif %}
+        
+            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
+            <div class="collapsible">
+                <button class="collapsible-button">Show/Hide Image</button>
+                <div class="content">
+                    <img src="../../static/images/prostate/latitude_summary_rc.png">
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- CASTRATE RESISTANt -->
+        {% if bio_status == "crpc" %}
+
+        <div class="section-box">
+            <p>Unable to risk stratify castrate-resistant patients.</p>
+        </div>
+        {% endif %}
+
+        <div class="space-result"></div>
+        <button class="back-button" onclick="window.location.href='/prostate'">Back to form</button>
+        <button class="home-button" onclick="window.location.href='/'">Home</button>
+        <script src="../../static/scripts/myscripts.js"></script>
+
+    </body>
+</html>
+      
+
