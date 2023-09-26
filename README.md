@@ -5,4 +5,4 @@
  
  See [here](https://github.com/xavier-orcutt/rct_generalizability_flatiron) for more information on model build and survival estimates. 
 
- *Boosted Forecaster* can be accessed at: [boosted-forecaster.com](https://boosted-forecaster.com)
+ *Boosted Forecaster* can be accessed at: [boosted-forecaster.com](https://www.boosted-forecaster.com)
