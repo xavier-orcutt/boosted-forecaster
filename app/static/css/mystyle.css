@@ -14,19 +14,19 @@ body {
     margin: 3rem 12rem; 
 }
 
-/* Media query for screens with a maximum width of 768px (typical for phones) */
-@media (max-width: 768px) {
-    body {
-        margin: 1rem; /* Adjust margins for smaller screens */
-    }
-}
-
 p {  
     font-family: 'Georgia', serif;  
     font-size: 16px;
     color: rgb(62, 67, 73);
     display: block;
 }  
+
+/* Media query for screens with a maximum width of 768px (typical for phones) */
+@media (max-width: 768px) {
+    body {
+        margin: 1rem; 
+    }
+}
 
 h2 {  
     font-family: 'Montserrat', 'Helvetica', sans-serif;  
@@ -147,6 +147,14 @@ input[type="button"],
 .form_style2 input[type="radio"] {
     display: inline-block;
     vertical-align: top; 
+}
+
+@media (max-width: 768px) {
+    .form_style1, 
+    .form_style2,
+    .form_style3 {
+        font-size: 14px; 
+    }
 }
 
 .LOW {
