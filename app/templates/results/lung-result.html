@@ -17,45 +17,57 @@
     <header>
         <h1>NSCLC Results</h1>
     </header>
+    
+    <!-- ESTIMATED INDIVIDUAL SURVIVAL -->
+    <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p>
 
+    <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
+  
     <!-- EGFR POSITIVE -->
     {% if bio_status == "egfr_positive" %}
     <div class="section-box">
-      <p>Risk level is <span class="{{ flaura_risk }}"> {{ flaura_risk }} </span> when compared to patients in routine practice with EGFR mutation-positive disease who went on to receive first-line osimertinib or standard EGFR-TKI. {{form_data}}</p>
+      <p class="treatment"> Osimertinib or standard EGFR-TKI</p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ flaura_risk }} </p>
+      
+      {% if flaura_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is osimertinib expected to offer a survival advantage over standard EGFR-TKI?</span> Yes</p>
 
-      <p>Progression fress survival (PFS) estimates for <span class="{{ flaura_risk }}">{{ flaura_risk }}</span> risk patients in routine practice:</p>
-      {% if flaura_risk == "LOW" %}
+      <p>Click below for more information on progression free survival (PFS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">PFS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/flaura_low.png">
         </div>
       </div>
 
-      {% elif flaura_risk == "MEDIUM" %}
+      {% elif flaura_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is osimertinib expected to offer a survival advantage over standard EGFR-TKI?</span> Yes</p>
+
+      <p>Click below for more information on progression free survival (PFS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">PFS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/flaura_med.png">
         </div>
       </div>
        
-      {% elif flaura_risk == "HIGH"%}
+      {% elif flaura_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is osimertinib expected to offer a survival advantage over standard EGFR-TKI?</span> No</p>
+
+      <p>Click below for more information on progression free survival (PFS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">PFS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/flaura_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing PFS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/flaura_summary_rc.png">
+          <img src="../../static/images/lung/flaura_summary.png">
         </div>
       </div>
     </div>
@@ -66,41 +78,48 @@
 
     <!-- LOW PDL1: KEYNOTE-189 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ key189_risk }}"> {{ key189_risk }} </span> when compared to patients in routine practice who receive first-line chemotherapy plus pembrolizumab or chemotherapy alone regardless of PDL1 status.</p>
+      <p class="treatment"> Pembrolizumab plus chemotherapy or chemotherapy</p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ key189_risk }} </p>
+      
+      {% if key189_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
-      <p>Overall survival (OS) estimates for <span class="{{ key189_risk }}">{{ key189_risk }}</span> risk patients in routine practice:</p>
-      {% if key189_risk == "LOW" %}
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_low.png">
         </div>
       </div>
 
-      {% elif key189_risk == "MEDIUM" %}
+      {% elif key189_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_med.png">
         </div>
       </div>
        
-      {% elif key189_risk == "HIGH"%}
+      {% elif key189_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/key189_summary_rc.png">
+          <img src="../../static/images/lung/key189_summary.png">
         </div>
       </div>
     </div>
@@ -109,41 +128,48 @@
 
     <!-- LOW PDL1: KEYNOTE-042 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ key042_risk }}"> {{ key042_risk }} </span> when compared to patients in routine practice who receive first-line pembrolizumab or chemotherapy alone and PDL1 &ge;1%.</p>
+      <p class="treatment"> Pembrolizumab or chemotherapy in low PDL1</p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ key042_risk }} </p>
 
-      <p>Overall survival (OS) estimates for <span class="{{ key042_risk }}">{{ key042_risk }}</span> risk patients in routine practice:</p>
-      {% if key042_risk == "LOW" %}
+      {% if key042_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key042_low.png">
         </div>
       </div>
 
-      {% elif key042_risk == "MEDIUM" %}
+      {% elif key042_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key042_med.png">
         </div>
       </div>
        
-      {% elif key042_risk == "HIGH"%}
+      {% elif key042_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key042_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/key042_summary_rc.png">
+          <img src="../../static/images/lung/key042_summary.png">
         </div>
       </div>
     </div>
@@ -152,41 +178,48 @@
 
     <!-- LOW PDL1: CHECKMATE-078 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ check_risk }}"> {{ check_risk }} </span> when compared to patients in routine practice who progressed after platinum-based chemotherapy and later received nivolumab or docetaxel.</p>
+      <p class="treatment"> Second-line nivolumab or docetaxel </p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ check_risk }} </p>
 
-      <p>Overall survival (OS) estimates for <span class="{{ check_risk }}">{{ check_risk }}</span> risk patients in routine practice:</p>
-      {% if check_risk == "LOW" %}
+      {% if check_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_low.png">
         </div>
       </div>
 
-      {% elif check_risk == "MEDIUM" %}
+      {% elif check_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_med.png">
         </div>
       </div>
        
-      {% elif check_risk == "HIGH"%}
+      {% elif check_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/check_summary_rc.png">
+          <img src="../../static/images/lung/check_summary.png">
         </div>
       </div>
     </div>
@@ -197,41 +230,48 @@
 
     <!-- HIGH PDL1: KEYNOTE-189 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ key189_risk }}"> {{ key189_risk }} </span> when compared to patients in routine practice who receive first-line chemotherapy plus pembrolizumab or chemotherapy alone regardless of PDL1 status.</p>
+      <p class="treatment"> Pembrolizumab plus chemotherapy or chemotherapy</p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ key189_risk }} </p>
+      
+      {% if key189_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
-      <p>Overall survival (OS) estimates for <span class="{{ key189_risk }}">{{ key189_risk }}</span> risk patients in routine practice:</p>
-      {% if key189_risk == "LOW" %}
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_low.png">
         </div>
       </div>
 
-      {% elif key189_risk == "MEDIUM" %}
+      {% elif key189_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_med.png">
         </div>
       </div>
        
-      {% elif key189_risk == "HIGH"%}
+      {% elif key189_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/key189_summary_rc.png">
+          <img src="../../static/images/lung/key189_summary.png">
         </div>
       </div>
     </div>
@@ -240,84 +280,48 @@
 
     <!-- HIGH PDL1: KEYNOTE-024 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ key024_risk }}"> {{ key024_risk }} </span> when compared to patients in routine practice who receive first-line pembrolizumab or chemotherapy alone and PDL1 &ge;50%.</p>
+      <p class="treatment"> Pembrolizumab or chemotherapy in high PDL1</p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ key024_risk }} </p>
 
-      <p>Overall survival (OS) estimates for <span class="{{ key024_risk }}">{{ key024_risk }}</span> risk patients in routine practice:</p>
-      {% if key024_risk == "LOW" %}
+      {% if key024_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key024_low.png">
         </div>
       </div>
 
-      {% elif key024_risk == "MEDIUM" %}
+      {% elif key024_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key024_med.png">
         </div>
       </div>
        
-      {% elif key024_risk == "HIGH"%}
+      {% elif key024_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key024_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/key024_summary_rc.png">
-        </div>
-      </div>
-    </div>
-
-    <div class="space-result"></div>
-
-    <!-- HIGH PDL1: KEYNOTE-042 -->
-    <div class="section-box">
-      <p>Risk level is <span class="{{ key042_risk }}"> {{ key042_risk }} </span> when compared to patients in routine practice who receive first-line pembrolizumab or chemotherapy alone and PDL1 &ge;1%.</p>
-
-      <div class="space"></div>
-
-      <p>Overall survival (OS) estimates for <span class="{{ key042_risk }}">{{ key042_risk }}</span> risk patients in routine practice:</p>
-      {% if key042_risk == "LOW" %}
-      <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
-        <div class="content">
-          <img src="../../static/images/lung/key042_low.png">
-        </div>
-      </div>
-
-      {% elif key042_risk == "MEDIUM" %}
-      <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
-        <div class="content">
-          <img src="../../static/images/lung/key042_med.png">
-        </div>
-      </div>
-       
-      {% elif key042_risk == "HIGH"%}
-      <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
-        <div class="content">
-          <img src="../../static/images/lung/key042_high.png">
-        </div>
-      </div>
-      {% endif %}
-
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
-      <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
-        <div class="content">
-          <img src="../../static/images/lung/key042_summary_rc.png">
+          <img src="../../static/images/lung/key024_summary.png">
         </div>
       </div>
     </div>
@@ -326,41 +330,48 @@
 
     <!-- HIGH PDL1: CHECKMATE-078 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ check_risk }}"> {{ check_risk }} </span> when compared to patients in routine practice who progressed after platinum-based chemotherapy and later received nivolumab or docetaxel.</p>
+      <p class="treatment"> Second-line nivolumab or docetaxel </p>
 
-      <div class="space"></div>
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ check_risk }} </p>
 
-      <p>Overall survival (OS) estimates for <span class="{{ check_risk }}">{{ check_risk }}</span> risk patients in routine practice:</p>
-      {% if check_risk == "LOW" %}
+      {% if check_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_low.png">
         </div>
       </div>
 
-      {% elif check_risk == "MEDIUM" %}
+      {% elif check_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_med.png">
         </div>
       </div>
        
-      {% elif check_risk == "HIGH"%}
+      {% elif check_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_high.png">
         </div>
       </div>
       {% endif %}
 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/check_summary_rc.png">
+          <img src="../../static/images/lung/check_summary.png">
         </div>
       </div>
     </div>
@@ -371,41 +382,48 @@
 
     <!-- ZERO OR UNKNOWN PDL1: KEYNOTE-189 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ key189_risk }}"> {{ key189_risk }} </span> when compared to patients in routine practice who receive first-line chemotherapy plus pembrolizumab or chemotherapy alone regardless of PDL1 status.</p>
+      <p class="treatment"> Pembrolizumab plus chemotherapy or chemotherapy</p>
+
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ key189_risk }} </p>
       
-      <div class="space"></div>
-      
-      <p>Overall survival (OS) estimates for <span class="{{ key189_risk }}">{{ key189_risk }}</span> risk patients in routine practice:</p>
-      {% if key189_risk == "LOW" %}
+      {% if key189_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_low.png">
         </div>
       </div>
-      
-      {% elif key189_risk == "MEDIUM" %}
+
+      {% elif key189_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_med.png">
         </div>
       </div>
-        
-      {% elif key189_risk == "HIGH"%}
+       
+      {% elif key189_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/key189_high.png">
         </div>
       </div>
       {% endif %}
- 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
+
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/key189_summary_rc.png">
+          <img src="../../static/images/lung/key189_summary.png">
         </div>
       </div>
     </div>
@@ -414,41 +432,48 @@
  
     <!-- ZERO OR UNKNOWN PDL1: CHECKMATE-078 -->
     <div class="section-box">
-      <p>Risk level is <span class="{{ check_risk }}"> {{ check_risk }} </span> when compared to patients in routine practice who progressed after platinum-based chemotherapy and later received nivolumab or docetaxel.</p>
- 
-      <div class="space"></div>
- 
-      <p>Overall survival (OS) estimates for <span class="{{ check_risk }}">{{ check_risk }}</span> risk patients in routine practice:</p>
-      {% if check_risk == "LOW" %}
+      <p class="treatment"> Second-line nivolumab or docetaxel </p>
+
+      <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ check_risk }} </p>
+
+      {% if check_risk == "Low" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_low.png">
         </div>
       </div>
- 
-      {% elif check_risk == "MEDIUM" %}
+
+      {% elif check_risk == "Medium" %}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_med.png">
         </div>
       </div>
-        
-      {% elif check_risk == "HIGH"%}
+       
+      {% elif check_risk == "High"%}
+      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> No</p>
+
+      <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">OS estimate</button>
         <div class="content">
           <img src="../../static/images/lung/check_high.png">
         </div>
       </div>
       {% endif %}
- 
-      <p>Comparing OS estimates in routine practice to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
+
       <div class="collapsible">
-        <button class="collapsible-button">Show/Hide Image</button>
+        <button class="collapsible-button">RCT comparison</button>
         <div class="content">
-          <img src="../../static/images/lung/check_summary_rc.png">
+          <img src="../../static/images/lung/check_summary.png">
         </div>
       </div>
     </div>
@@ -457,7 +482,7 @@
     <!-- ALK POSITIVE -->
     {% if bio_status == 'alk_positive' %}
     <div class="section-box">
-      <p>Unable to risk stratify patients that are ALK positive.</p>
+      <p class="empty">No survival estimates available for ALK inhibitors.</p>
     </div>
     {% endif %}
 

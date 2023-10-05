@@ -16,11 +16,15 @@
     <header>
       <h1>Prostate Form</h1>
     </header>
-    <p>Enter as much information about the patient as possible. Only variables from the first 3 sections are necessary for risk stratification.</p>
-      
-    <p>Select the variable value closest to time of metastatic diagnosis, ideally within 30 days.</p>
-    
-    <p>The top 5 most predictive variables for the prostate machine learning model were: (1) age, (2) castrate-resistance, (3) hemoglobin, (4) weight change, and (5) maximum ALP.</p>
+
+    <div class="intro-bullet">
+      <p>A few things to keep in mind as you enter information about your patient:</p>
+      <ul>
+        <li>Only the first 4 sections need to be completed.</li>
+        <li>Enter the variable value closest to time of metastatic diagnosis, ideally within 30 days.</li>
+        <li>The top 5 most predictive variables for the prostate machine learning model were: (1) age, (2) castrate-resistance, (3) hemoglobin, (4) weight change, and (5) maximum ALP.</li>
+      </ul>
+    </div>
     
     <!-- Breast Form -->
     <form action="/prostate" method="POST">
@@ -33,34 +37,11 @@
         <input type="number" name="age" min="18" required>
       
         <div class="space"></div>
-      
-        <div class="vertical-opt">
-          <label> Race: </label>
-          <label><input type="radio" name="race" value="white" checked="checked"> White </label>
-          <label><input type="radio" name="race" value="black"> Black </label>
-          <label><input type="radio" name="race" value="asian"> Asian </label>
-          <label><input type="radio" name="race" value="other"> Other </label>
-          <label class="last-line"><input type="radio" name="race" value="unknown"> Unknown </label>
-        </div>
-      
-        <div class="vertical-opt">
-          <label> Ethnicity:</label>
-          <label><input type="radio" name="ethnicity" value="not_hispanic_latino" checked="checked"> Not hispanic/latino </label>
-          <label class="last-line"><input type="radio" name="ethnicity" value="hispanic_latino"> Hispanic/latino </label>
-        </div>
 
         <div class="vertical-opt">
           <label> Practice type:</label>
           <label><input type="radio" name="p_type" value="COMMUNITY" checked="checked"> Community </label>
           <label class="last-line"><input type="radio" name="p_type" value="ACADEMIC"> Academic </label>
-        </div>
-
-        <div class="vertical-opt">
-          <label> Insurance:</label>
-          <label><input type="checkbox" name="insurance" value="commercial"> Commercial </label>
-          <label><input type="checkbox" name="insurance" value="medicare"> Medicare </label>
-          <label><input type="checkbox" name="insurance" value="medicaid"> Medicaid </label>
-          <label><input type="checkbox" name="insurance" value="other"> Other </label>
         </div>
       </div>
 
@@ -185,6 +166,7 @@
       
         <label>ECOG:</label>
         <select name="ecog_diagnosis" size="1" required>
+          <option value="unknown">Unknown</option>
           <option value="0.0">0</option>
           <option value="1.0">1</option>
           <option value="2.0">2</option>
@@ -195,7 +177,7 @@
       </div>
 
       <!-- Past medical history section -->
-      <h2>4. Past medical history </h2>
+      <h2>4. Past medical history (optional) </h2>
       <p>Select if patient has any of the following comorbidities. Other cancer includes all cancers except benign neoplasms of the skin.</p>
       <div class="form_style2">
 
@@ -361,7 +343,7 @@
       </div>
 
       <!-- Medication section -->
-      <h2>5. Medications</h2>
+      <h2>5. Medications (optional)</h2>
       <p>Select if patient received any of the following medications near time of metastatic diagnosis but prior to start of first line of treatment.</p>
 
       <div class="form_style2">
@@ -434,7 +416,7 @@
       </div>
 
       <!-- Lab section -->
-      <h2>6. Labs</h2>
+      <h2>6. Labs (optional)</h2>
       <p>Enter lab value closest to time of metastatic diagnosis. For summary labs, the value can be selected anytime before metastatic diagnosis.</p>
 
         <h3>Cancer specific labs</h3>

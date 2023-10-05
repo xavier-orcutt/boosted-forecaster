@@ -15,14 +15,17 @@
         <header>
             <h1>Colorectal Form</h1>
         </header>
+
+        <div class="intro-bullet">
+            <p>A few things to keep in mind as you enter information about your patient:</p>
+            <ul>
+              <li>Only the first 4 sections need to be completed.</li>
+              <li>Enter the variable value closest to time of metastatic diagnosis, ideally within 30 days.</li>
+              <li>The top 5 most predictive variables for the prostate machine learning model were: (1) change in weight, (2) age, (3) albumin, (4) ECOG, and (5) ALP.</li>
+            </ul>
+          </div>
     
-        <p>Enter as much information about the patient as possible. Only variables from the first 4 sections are necessary for risk stratification.</p>
-      
-        <p>Select the variable value closest to time of metastatic diagnosis, ideally within 30 days.</p>
-    
-        <p>The top 5 most predictive variables for the prostate machine learning model were: (1) change in weight, (2) age, (3) albumin, (4) ECOG, and (5) ALP.</p>
-    
-        <!-- Breast Form -->
+        <!-- Colorectal Form -->
         <form action="/colorectal" method="POST">
         
             <!-- Demographic section -->
@@ -35,58 +38,17 @@
                 <div class="space"></div>
 
                 <div class="vertical-opt">
-                    <label> Sex:</label>
+                    <label> Sex at time of birth:</label>
                     <label><input type="radio" name="gender" value="M" checked="checked"> Male </label>
                     <label class="last-line"><input type="radio" name="gender" value="F"> Female </label>
                 </div>
-      
-                <div class="vertical-opt">
-                    <label> Race: </label>
-                    <label><input type="radio" name="race" value="White" checked="checked"> White </label>
-                    <label><input type="radio" name="race" value="Black or African American"> Black </label>
-                    <label><input type="radio" name="race" value="Asian"> Asian </label>
-                    <label><input type="radio" name="race" value="Other Race"> Other </label>
-                    <label class="last-line"><input type="radio" name="race" value="unknown"> Unknown </label>
-                </div>
-      
-                <div class="vertical-opt">
-                    <label> Ethnicity:</label>
-                    <label><input type="radio" name="ethnicity" value="Not Hispanic or Latino" checked="checked"> Not hispanic/latino </label>
-                    <label class="last-line"><input type="radio" name="ethnicity" value="hispanic_latino"> Hispanic/latino </label>
-                </div>
-
-                <div class="vertical-opt">
-                    <label> Region:</label>
-                    <label><input type="radio" name="region" value="northeast" checked="checked"> Northeast </label>
-                    <label><input type="radio" name="region" value="south"> South </label>
-                    <label><input type="radio" name="region" value="west"> West </label>
-                    <label class="last-line"><input type="radio" name="region" value="midwest"> Midwest </label>
-                </div>
-
+    
                 <div class="vertical-opt">
                     <label> Practice type:</label>
                     <label><input type="radio" name="p_type" value="COMMUNITY" checked="checked"> Community </label>
                     <label class="last-line"><input type="radio" name="p_type" value="ACADEMIC"> Academic </label>
                 </div>
 
-                <div class="vertical-opt">
-                    <label> Insurance:</label>
-                    <label><input type="checkbox" name="insurance" value="commercial"> Commercial </label>
-                    <label><input type="checkbox" name="insurance" value="medicare"> Medicare </label>
-                    <label><input type="checkbox" name="insurance" value="medicaid"> Medicaid </label>
-                    <label><input type="checkbox" name="insurance" value="other"> Other </label>
-                </div>
-
-                <div class="space"></div>
-
-                <label>Socieconomic status index (1 represents lowest SES and 5 represents highest SES):</label>
-                <select name="ses" size="1" required>
-                    <option value="1.0">1</option>
-                    <option value="2.0">2</option>
-                    <option value="3.0">3</option>
-                    <option value="4.0">4</option>
-                    <option value="5.0">5</option>
-                </select> 
             </div>
         
             <!-- Cancer characteristic section -->
@@ -203,6 +165,7 @@
       
                 <label>ECOG:</label>
                 <select name="ecog_diagnosis" size="1" required>
+                    <option value="unknown">Unknown</option>
                     <option value="0.0">0</option>
                     <option value="1.0">1</option>
                     <option value="2.0">2</option>
@@ -213,7 +176,7 @@
             </div>
         
             <!-- Past medical history section -->
-            <h2>5. Past medical history </h2>
+            <h2>5. Past medical history (optional)</h2>
             <p>Select if patient has any of the following comorbidities. Other cancer includes all cancers except benign neoplasms of the skin.</p>
             <div class="form_style2">
             
@@ -378,7 +341,7 @@
             </div>
 
             <!-- Medication section -->
-            <h2>6. Medications</h2>
+            <h2>6. Medications (optional)</h2>
             <p>Select if patient received any of the following medications near time of metastatic diagnosis but prior to start of first line of treatment.</p>
             <div class="form_style2">
 
@@ -450,7 +413,7 @@
             </div>
 
             <!-- Lab section -->
-            <h2>7. Labs</h2>
+            <h2>7. Labs (optional)</h2>
             <p>Enter value closest to time of metastatic diagnosis. For summary labs, value can be anytime before metastatic diagnosis.</p>
       
             <h3>Cancer specific lab</h3>

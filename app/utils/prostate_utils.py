@@ -13,10 +13,17 @@ with open('app/data/prostate_columns.csv', 'r') as csv_file:
 def extract_prostate_data(form):
     
     # Create list starting with 'M' for male since sex variable will always be male
-    form_data = ['M']
+    #form_data = ['M']
 
-    # Collect from data from race up to NStage
-    for var in prostate_columns[1:6]:
+    form_data = ['M', 'white', 'unknown']
+
+    # Collect form data from race up to NStage
+    #for var in prostate_columns[1:6]:
+    #    var_value = form.get(var)
+    #    form_data.append(var_value)
+
+    # Colelct form data from age to NStage
+    for var in prostate_columns[3:6]:
         var_value = form.get(var)
         form_data.append(var_value)
 
@@ -65,9 +72,10 @@ def extract_prostate_data(form):
         form_data.append(var_value)
 
     # Process insurance data 
-    insurance = form.getlist('insurance')
-    processed_insurance = process_insurance(insurance_data = insurance)
-    form_data.extend(processed_insurance)
+    #insurance = form.getlist('insurance')
+    #processed_insurance = process_insurance(insurance_data = insurance)
+    insurance = [0, 0, 0, 0, 0, 0, 0, 0]
+    form_data.extend(insurance)
 
     # Collect from data from ecog_diagnosis up to bmi_diag
     for var in prostate_columns[39:42]:
@@ -229,10 +237,10 @@ def categorize_prostate_risk(trials, risk_score):
     risk_list = []
     for x in trials: 
         if risk_score >= risk_cutoff_prostate.loc[x].high:
-            risk_list.append('HIGH')
+            risk_list.append('High')
         elif risk_score <= risk_cutoff_prostate.loc[x].low:
-            risk_list.append('LOW')
+            risk_list.append('Low')
         else:
-            risk_list.append('MEDIUM')
+            risk_list.append('Medium')
 
     return risk_list

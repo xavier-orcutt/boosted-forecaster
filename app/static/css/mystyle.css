@@ -11,7 +11,7 @@ header {
 }
 
 body {
-    margin: 3rem 12rem; 
+    margin: 3rem 10rem; 
 }
 
 p {  
@@ -19,6 +19,7 @@ p {
     font-size: 16px;
     color: rgb(62, 67, 73);
     display: block;
+    line-height: 1.5;
 }  
 
 /* Media query for screens with a maximum width of 768px (typical for phones) */
@@ -86,6 +87,18 @@ input[type="button"],
     float: right;
 }
 
+.intro-bullet {
+    font-family: 'Georgia', serif;  
+    font-size: 16px;
+    color: rgb(62, 67, 73);
+    display: block;
+    line-height: 1.5;
+    list-style-type: disc; /* Set the bullet point style */
+    margin-left: 0px; /* Adjust the margin for indentation */
+    margin-top: 0;
+    padding-top: 0;
+}
+
 .form_style1, 
 .form_style2,
 .form_style3 {
@@ -102,6 +115,11 @@ input[type="button"],
 .form_style2 input[type="number"],
 .form_style1 select{
   width: 50px; 
+}
+
+select[name="ecog_diagnosis"],
+select[name="GleasonScore"] {
+    width: 80px; 
 }
 
 /* Entry field box width */
@@ -165,19 +183,9 @@ input[type="button"],
 }
 }
 
-.LOW {
+.med_surv_estimate {
+    font-weight: bold;
     font-size: 24px; 
-    color: green;   
-}
-
-.MEDIUM {
-    font-size: 24px; 
-    color: orange;  
-}
-
-.HIGH {
-    font-size: 24px; 
-    color: red;     
 }
 
 .section-box {
@@ -194,13 +202,29 @@ input[type="button"],
     margin-bottom: 5px
 }
 
+.section-box .treatment {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: -10px;
+}
+
+.section-box .empty {
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+
+.section-box .risk-benefit {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .collapsible-button {
     background-color: #007bff;
     color: #fff;
     padding: 5px 10px;
     border: none;
     cursor: pointer;
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
     transition: background-color 0.3s;
 }
 

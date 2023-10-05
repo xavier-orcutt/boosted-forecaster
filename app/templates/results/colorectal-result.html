@@ -17,45 +17,56 @@
         <header>
             <h1>Colorectal Results</h1>
         </header>
+
+        <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p>
+
+        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
         
         <!-- KRAS WT -->
         {% if bio_status == "kras_wt" %}
         <div class="section-box">
-            <p>Risk level is <span class="{{ fire3_risk }}"> {{ fire3_risk  }} </span> when compared to patients in routine practice with KRAS wild-type metastatic disease who went on to receive first-line chemotherapy doublet with either cetuximab or bevacizumab.</p>
+            <p class="treatment">Cetuximab plus FOLFIRI or Bevacizumab plus FOLFIRI</p>
+
+            <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ fire3_risk }} </p>
             
-            <div class="space"></div>
-            
-            <p>Overall survival (OS) estimates for <span class="{{ fire3_risk  }}">{{ fire3_risk  }}</span> risk patients in routine practice:</p>
-            {% if fire3_risk  == "LOW" %}
+            {% if fire3_risk  == "Low" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is cetuximab plus FOLFIRI expected to offer a survival advantage over bevacizumab plus FOLFIRI?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045%2814%2970330-4/fulltext">FIRE-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/colorectal/fire3_low.png">
                 </div>
             </div>
             
-            {% elif fire3_risk  == "MEDIUM" %}
+            {% elif fire3_risk  == "Medium" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is cetuximab plus FOLFIRI expected to offer a survival advantage over bevacizumab plus FOLFIRI?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045%2814%2970330-4/fulltext">FIRE-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/colorectal/fire3_med.png">
                 </div>
             </div>
                
-            {% elif fire3_risk  == "HIGH"%}
+            {% elif fire3_risk  == "High"%}
+            <p><span class="risk-benefit">Based on the patient's risk, is cetuximab plus FOLFIRI expected to offer a survival advantage over bevacizumab plus FOLFIRI?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045%2814%2970330-4/fulltext">FIRE-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/colorectal/fire3_high.png">
                 </div>
             </div>
             
             {% endif %}
-            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045%2814%2970330-4/fulltext">FIRE-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">RCT comparison</button>
                 <div class="content">
-                    <img src="../../static/images/colorectal/fire3_summary_rc.png">
+                    <img src="../../static/images/colorectal/fire3_summary.png">
                 </div>
             </div>
         </div>
@@ -64,7 +75,7 @@
         <!-- NOT KRAS-WT -->
         {% if bio_status == 'not_kras_wt' %}
         <div class="section-box">
-            <p>Unable to risk stratify patients if they are not KRAS wild-type.</p>
+            <p class="empty">No treatment survival estimates available for patients that have biomarker status other than KRAS wild-type.</p>
         </div>
         {% endif %}
 

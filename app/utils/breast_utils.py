@@ -16,7 +16,27 @@ def extract_breast_data(form):
     form_data = []
 
     # Collect from data from PracticeType up to pdl1_n
-    for var in breast_columns[0:28]:
+    #for var in breast_columns[0:28]:
+        #var_value = form.get(var)
+        #form_data.append(var_value)
+
+    # Append sex 
+    gender_value = form.get('gender')
+    form_data.append(gender_value)
+
+    # Append race and ethnicity 
+    race_ethnicity = ['White', 'Not Hispanic or Latino']
+    form_data.extend(race_ethnicity)
+
+    # Collect form data from age to p_type 
+    for var in breast_columns[3:5]:
+        var_value = form.get(var)
+        form_data.append(var_value)
+
+    # Append region
+    form_data.append('south')
+
+    for var in breast_columns[6:28]:
         var_value = form.get(var)
         form_data.append(var_value)
 
@@ -25,10 +45,11 @@ def extract_breast_data(form):
     form_data[7] = met_year_int
 
     # Process insurance data 
-    insurance = form.getlist('insurance')
-    processed_insurance = process_insurance(insurance_data = insurance)
-    form_data.extend(processed_insurance)
-
+    #insurance = form.getlist('insurance')
+    #processed_insurance = process_insurance(insurance_data = insurance)
+    insurance = [0, 0, 0, 0, 0, 0, 0, 0]
+    form_data.extend(insurance) 
+    
     # Collect from data from ecog_diagnosis up to bmi_diag
     for var in breast_columns[36:39]:
         var_value = form.get(var)
@@ -111,10 +132,10 @@ def extract_breast_data(form):
     form_data.extend(processed_met_site)
 
     # Process ses and convert to float
-    ses = form.get('ses')
-    ses_int = float(ses)
+    #ses = form.get('ses')
+    #ses_int = float(ses)
 
-    form_data.append(ses_int)
+    form_data.append(3.0)
 
     # _na column for summary labs added to the end
     form_data.extend(na_labs_sum)
@@ -168,10 +189,10 @@ def categorize_breast_risk(trials, risk_score):
     risk_list = []
     for x in trials: 
         if risk_score >= risk_cutoff_breast.loc[x].high:
-            risk_list.append('HIGH')
+            risk_list.append('High')
         elif risk_score <= risk_cutoff_breast.loc[x].low:
-            risk_list.append('LOW')
+            risk_list.append('Low')
         else:
-            risk_list.append('MEDIUM')
+            risk_list.append('Medium')
 
     return risk_list

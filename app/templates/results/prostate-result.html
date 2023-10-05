@@ -17,47 +17,58 @@
         <header>
             <h1>Prostate Results</h1>
         </header>
+
+        <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p>
+
+        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
         
         <!-- CASTRATE SENSITIVE -->
         {% if bio_status == "hspc" %}
 
         <!-- CASTRATE SENSITIVE: CHAARTED -->
         <div class="section-box">
-            <p>Risk level is <span class="{{ chaarted_risk }}"> {{ chaarted_risk }} </span> when compared to patients in routine practice with metastatic hormonse-sensitive prostate cancer who went on to receive first-line ADT +/- docetaxel.</p>
+            <p class="treatment">Docetaxel plus ADT or ADT</p>
+
+            <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ chaarted_risk }} </p>
             
-            <div class="space"></div>
-            
-            <p>Overall survival (OS) estimates for <span class="{{ chaarted_risk }}">{{ chaarted_risk }}</span> risk patients in routine practice:</p>
-            {% if chaarted_risk == "LOW" %}
+            {% if chaarted_risk == "Low" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/prostate/chaarted_low.png">
                 </div>
             </div>
         
-            {% elif chaarted_risk == "MEDIUM" %}
+            {% elif chaarted_risk == "Medium" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/prostate/chaarted_med.png">
                 </div>
             </div>
        
-            {% elif chaarted_risk == "HIGH"%}
+            {% elif chaarted_risk == "High"%}
+            <p><span class="risk-benefit">Based on the patient's risk, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/prostate/chaarted_high.png">
                 </div>
             </div>
             {% endif %}
         
-            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">RCT comparison</button>
                 <div class="content">
-                    <img src="../../static/images/prostate/chaarted_summary_rc.png">
+                    <img src="../../static/images/prostate/chaarted_summary.png">
                 </div>
             </div>
         </div>
@@ -66,40 +77,48 @@
 
         <!-- CASTRATE SENSITIVE: LATITUDE -->
         <div class="section-box">
-            <p>Risk level is <span class="{{ latitude_risk }}"> {{ latitude_risk }} </span> when compared to patients in routine practice with metastatic hormone-sensitive prostate cancer who went on to receive first-line ADT +/- abiraterone.</p>
-            <div class="space"></div>
-            
-            <p>Overall survival (OS) estimates for <span class="{{ latitude_risk }}">{{ latitude_risk }}</span> risk patients in routine practice:</p>
-            {% if latitude_risk == "LOW" %}
+            <p class="treatment">Abiraterone plus ADT or ADT</p>
+
+            <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ latitude_risk }} </p>
+
+            {% if latitude_risk == "Low" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/prostate/latitude_low.png">
                 </div>
             </div>
         
-            {% elif latitude_risk == "MEDIUM" %}
+            {% elif latitude_risk == "Medium" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/prostate/latitude_med.png">
                 </div>
             </div>
        
-            {% elif latitude_risk == "HIGH"%}
+            {% elif latitude_risk == "High"%}
+            <p><span class="risk-benefit">Based on the patient's risk, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/prostate/latitude_high.png">
                 </div>
             </div>
             {% endif %}
         
-            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">RCT comparison</button>
                 <div class="content">
-                    <img src="../../static/images/prostate/latitude_summary_rc.png">
+                    <img src="../../static/images/prostate/latitude_summary.png">
                 </div>
             </div>
         </div>
@@ -107,9 +126,8 @@
 
         <!-- CASTRATE RESISTANt -->
         {% if bio_status == "crpc" %}
-
         <div class="section-box">
-            <p>Unable to risk stratify castrate-resistant patients.</p>
+            <p class="empty">No treatment survival estimates available for patients with castrate-resistant disease.</p>
         </div>
         {% endif %}
 

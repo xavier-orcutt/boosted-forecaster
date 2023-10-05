@@ -17,47 +17,58 @@
         <header>
             <h1>Breast Results</h1>
         </header>
+
+        <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p>
+
+        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
         
         <!-- HR POSITIVE -->
         {% if bio_status == "hr_positive" %}
 
         <!-- HR POSITIVE: PALOMA-2 -->
         <div class="section-box">
-            <p>Risk level is <span class="{{ paloma2_risk }}"> {{ paloma2_risk }} </span> when compared to patients in routine practice with hormone receptor-positive, HER2-negative metastatic breast cancer who went on to receive first-line palbociclib plus letrozole or letrozole alone.</p>
+            <p class="treatment">Palbociclib plus letrozole or letrozole in HR-positive disease</p>
+
+            <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ paloma2_risk }} </p>
             
-            <div class="space"></div>
-            
-            <p>Progression fress survival (PFS) estimates for <span class="{{ paloma2_risk }}">{{ paloma2_risk }}</span> risk patients in routine practice:</p>
-            {% if paloma2_risk == "LOW" %}
+            {% if paloma2_risk == "Low" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus letrozole expected to offer a survival advantage over letrozole alone?</span> Yes</p>
+
+            <p>Click below for more information on progression free survival (PFS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">PFS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/paloma2_low.png">
                 </div>
             </div>
         
-            {% elif paloma2_risk == "MEDIUM" %}
+            {% elif paloma2_risk == "Medium" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus letrozole expected to offer a survival advantage over letrozole alone?</span> Yes</p>
+
+            <p>Click below for more information on progression free survival (PFS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">PFS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/paloma2_med.png">
                 </div>
             </div>
        
-            {% elif paloma2_risk == "HIGH"%}
+            {% elif paloma2_risk == "High"%}
+            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus letrozole expected to offer a survival advantage over letrozole alone?</span> No</p>
+
+            <p>Click below for more information on progression free survival (PFS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">PFS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/paloma2_high.png">
                 </div>
             </div>
             {% endif %}
         
-            <p>Comparing PFS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">RCT comparison</button>
                 <div class="content">
-                    <img src="../../static/images/breast/paloma2_summary_rc.png">
+                  <img src="../../static/images/breast/paloma2_summary.png">
                 </div>
             </div>
         </div>
@@ -66,40 +77,48 @@
 
         <!-- HR POSITIVE: PALOMA-3 -->
         <div class="section-box">
-            <p>Risk level is <span class="{{ paloma3_risk }}"> {{ paloma3_risk }} </span> when compared to patients in routine practice with hormone receptor-positive, HER2-negative metastatic breast cancer who had progressed during previous endocrine therapy and later on went to receive palbociclib plus fulvestrant or fulvestrant alone.</p>
-            <div class="space"></div>
-            
-            <p>Overall survival (OS) estimates for <span class="{{ paloma3_risk }}">{{ paloma3_risk }}</span> risk patients in routine practice:</p>
-            {% if paloma3_risk == "LOW" %}
+            <p class="treatment">Palbociclib plus fulvestrant or fulvestrant in HR-positive disease</p>
+
+            <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ paloma3_risk }} </p>
+                        
+            {% if paloma3_risk == "Low" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus fulvestrant expected to offer a survival advantage over fulvestrant alone?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/paloma3_low.png">
                 </div>
             </div>
         
-            {% elif paloma3_risk == "MEDIUM" %}
+            {% elif paloma3_risk == "Medium" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus fulvestrant expected to offer a survival advantage over fulvestrant alone?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/paloma3_med.png">
                 </div>
             </div>
        
-            {% elif paloma3_risk == "HIGH"%}
+            {% elif paloma3_risk == "High"%}
+            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus fulvestrant expected to offer a survival advantage over fulvestrant alone?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/paloma3_high.png">
                 </div>
             </div>
             {% endif %}
         
-            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">RCT comparison</button>
                 <div class="content">
-                    <img src="../../static/images/breast/paloma3_summary_rc.png">
+                  <img src="../../static/images/breast/paloma3_summary.png">
                 </div>
             </div>
         </div>
@@ -108,41 +127,48 @@
         <!-- HER2 POSITIVE -->
         {% if bio_status == "her2_positive" %}
         <div class="section-box">
-            <p>Risk level is <span class="{{ cleopatra_risk }}"> {{ cleopatra_risk }} </span> when compared to patients in routine practice with HER2-positive metastatic disease who went on to receive first-line trastuzumab, docetaxel, and +/- pertuzumab.</p>
-            
-            <div class="space"></div>
+            <p class="treatment">Pertuzumab, trastuzumab, and docetaxel or trastuzumab and docetaxel in HER2-positive disease</p>
 
-            <p>Overall survival (OS) estimates for <span class="{{ cleopatra_risk }}">{{ cleopatra_risk }}</span> risk patients in routine practice:</p>
-            {% if cleopatra_risk == "LOW" %}
+            <p><span class="risk-benefit">The patient's risk group when compared to others in routine practice who received one of the above therapies is:</span> {{ cleopatra_risk }} </p>
+
+            {% if cleopatra_risk == "Low" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> Yes</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/cleopatra_low.png">
                 </div>
             </div>
 
-            {% elif cleopatra_risk == "MEDIUM" %}
+            {% elif cleopatra_risk == "Medium" %}
+            <p><span class="risk-benefit">Based on the patient's risk, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/cleopatra_med.png">
                 </div>
             </div>
        
-            {% elif cleopatra_risk == "HIGH"%}
+            {% elif cleopatra_risk == "High"%}
+            <p><span class="risk-benefit">Based on the patient's risk, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> No</p>
+
+            <p>Click below for more information on overall survival (OS) estimate in routine practice and how it compares to patients in <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">OS estimate</button>
                 <div class="content">
                     <img src="../../static/images/breast/cleopatra_high.png">
                 </div>
             </div>
             {% endif %}
 
-            <p>Comparing OS estimates in routine practice to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
-                <button class="collapsible-button">Show/Hide Image</button>
+                <button class="collapsible-button">RCT comparison</button>
                 <div class="content">
-                    <img src="../../static/images/breast/cleopatra_summary_rc.png">
+                  <img src="../../static/images/breast/cleopatra_summary.png">
                 </div>
             </div>
         </div>
@@ -151,7 +177,7 @@
         <!-- TRIPLE NEGATIVE -->
         {% if bio_status == 'triple_negative' %}
         <div class="section-box">
-            <p>Unable to risk stratify patients if they have triple negative disease or if ER/PR or HER2 status are unknown.</p>
+            <p class="empty">No treatment survival estimates available for patients with triple negative disease or unknown HER2 status.</p>
         </div>
         {% endif %}
 
