@@ -92,7 +92,7 @@ def breast_patient_info():
         risk_score = breast_model.predict(pd.DataFrame(form_data, breast_columns).T)
         step_func = breast_model.predict_survival_function(pd.DataFrame(form_data, breast_columns).T)
         med_surv_est = np.where(step_func[0].x == find_nearest_index(step_func[0].y, 0.50))[0][0]
-        
+
         if (form_data[22] == 'positive' or form_data[24] == 'positive') and form_data[23] == 'negative':
             trials = ['paloma2', 'paloma3']
             trial_risk_list = categorize_breast_risk(trials = trials, risk_score = risk_score)
@@ -154,7 +154,7 @@ def colorectal_patient_info():
         return render_template('forms/colorectal-form.html')
     else:
         form_data = extract_colorectal_data(request.form)
-        risk_score = colorectal_model.predict(pd.DataFrame(form_data, colorectal_columns).T)
+        risk_score = colorectal_model.predict(pd.DataFrame(form_data, colorectal_columns).T) 
         step_func = colorectal_model.predict_survival_function(pd.DataFrame(form_data, colorectal_columns).T)
         med_surv_est = np.where(step_func[0].x == find_nearest_index(step_func[0].y, 0.50))[0][0]
 

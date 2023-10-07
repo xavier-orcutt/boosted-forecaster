@@ -183,6 +183,10 @@ select[name="GleasonScore"] {
 }
 }
 
+.italic {
+    font-style: italic;
+}
+
 .med_surv_estimate {
     font-weight: bold;
     font-size: 24px; 

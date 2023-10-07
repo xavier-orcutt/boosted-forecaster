@@ -77,17 +77,38 @@ def extract_prostate_data(form):
     insurance = [0, 0, 0, 0, 0, 0, 0, 0]
     form_data.extend(insurance)
 
-    # Collect from data from ecog_diagnosis up to bmi_diag
-    for var in prostate_columns[39:42]:
-        var_value = form.get(var)
-        form_data.append(var_value)
+    # Append ecog_diagnosis 
+    ecog_value = form.get('ecog_diagnosis')
+    form_data.append(ecog_value)
 
-    # bmi_diag_na will never be missing 
-    form_data.append("0")
-    
-    # weight_pct_change_na will never be missing and impute weight_pct_change for weight_slope
-    weight_pct_change_value = form.get('weight_pct_change')
-    form_data.extend([weight_pct_change_value, "0", weight_pct_change_value])   
+    # Append weight_diag 
+    weight_value = form.get('weight_diag')
+    weight_processed = np.nan if weight_value == "" else weight_value
+    form_data.append(weight_processed)
+
+    # Append bmi_diag and bmi_diag_na
+    bmi_value = form.get('bmi_diag')
+
+    if bmi_value == "":
+        bmi_results = [np.nan, 1]
+        
+    else:
+        bmi_processed = float(bmi_value)
+        bmi_results = [bmi_processed, 0]
+
+    form_data.extend(bmi_results)
+
+    # Append weight_pct_change and weight_pct_change_na
+    weight_change_value = form.get('weight_pct_change')
+
+    if weight_change_value == "":
+        weight_change_results = [np.nan, 1, np.nan]
+        
+    else:
+        weight_change_processed = float(weight_change_value)
+        weight_change_results = [weight_change_processed, 0, weight_change_processed]
+
+    form_data.extend(weight_change_results)
 
     lab_diag = []
     # Collect albumin_diag to wbc_diag
@@ -138,24 +159,17 @@ def extract_prostate_data(form):
 
     form_data.extend(lab_sum_int) # extend na_labs_sum at the very end
 
-    psa_slope = []
-    psa_slope.append(form.get('psa_slope'))
+    # Append psa_slope and psa_slope_na
+    psa_slope = form.get('psa_slope')
 
-    # Replace '' with np.nan
-    psa_slope_processed = [np.nan if item == "" else item for item in psa_slope]
+    if psa_slope == "":
+        psa_slope_results = [np.nan, 1]
+        
+    else:
+        psa_slope_processed = float(psa_slope)
+        psa_slope_results = [psa_slope_processed, 0]
 
-    # Convert str to float; leave np.nan alone. 
-    psa_slope_int = [float(x) if isinstance(x, str) else x for x in psa_slope_processed]
- 
-    psa_slope_na = []
-    for x in psa_slope_int:
-        if math.isnan(x):
-            psa_slope_na.append('1')
-        else:
-            psa_slope_na.append('0')
-
-    form_data.append(psa_slope_int[0])
-    form_data.append(psa_slope_na[0])
+    form_data.extend(psa_slope_results)    
 
     pmh = []
     # Collect from chf up to other cancer

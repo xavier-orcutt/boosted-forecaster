@@ -50,15 +50,38 @@ def extract_colorectal_data(form):
     insurance = [0, 0, 0, 0, 0, 0, 0, 0]
     form_data.extend(insurance)
 
-    # Collect from data from ecog_diagnosis up to bmi_diag
-    for var in colorectal_columns[36:39]:
-        var_value = form.get(var)
-        form_data.append(var_value)
+    # Append ecog_diagnosis 
+    ecog_value = form.get('ecog_diagnosis')
+    form_data.append(ecog_value)
 
-    form_data.append("0") #bmi_diag_na will never be missing 
-    
-    weight_pct_change_value = form.get('weight_pct_change')
-    form_data.extend([weight_pct_change_value, "0", weight_pct_change_value]) #weight_pct_change_na will never be missing and impute weight_pct_change for weight_slope  
+    # Append weight_diag 
+    weight_value = form.get('weight_diag')
+    weight_processed = np.nan if weight_value == "" else weight_value
+    form_data.append(weight_processed)
+
+    # Append bmi_diag and bmi_diag_na
+    bmi_value = form.get('bmi_diag')
+
+    if bmi_value == "":
+        bmi_results = [np.nan, 1]
+        
+    else:
+        bmi_processed = float(bmi_value)
+        bmi_results = [bmi_processed, 0]
+
+    form_data.extend(bmi_results)
+
+    # Append weight_pct_change and weight_pct_change_na
+    weight_change_value = form.get('weight_pct_change')
+
+    if weight_change_value == "":
+        weight_change_results = [np.nan, 1, np.nan]
+        
+    else:
+        weight_change_processed = float(weight_change_value)
+        weight_change_results = [weight_change_processed, 0, weight_change_processed]
+
+    form_data.extend(weight_change_results)
 
     lab_diag = []
     # Collect albumin_diag to wbc_diag
