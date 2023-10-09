@@ -93,7 +93,8 @@ def breast_patient_info():
         step_func = breast_model.predict_survival_function(pd.DataFrame(form_data, breast_columns).T)
         med_surv_est = np.where(step_func[0].x == find_nearest_index(step_func[0].y, 0.50))[0][0]
 
-        if (form_data[22] == 'positive' or form_data[24] == 'positive') and form_data[23] == 'negative':
+        # If ER or PR is positive and HER2 is negative 
+        if (form_data[19] == 'positive' or form_data[21] == 'positive') and form_data[20] == 'negative':
             trials = ['paloma2', 'paloma3']
             trial_risk_list = categorize_breast_risk(trials = trials, risk_score = risk_score)
             
@@ -103,7 +104,8 @@ def breast_patient_info():
                                    paloma2_risk = trial_risk_list[0], 
                                    paloma3_risk = trial_risk_list[1])
         
-        if form_data[23] == 'positive':
+        # If HER2 is negative
+        if form_data[20] == 'positive':
             trials = ['cleopatra']
             trial_risk_list = categorize_breast_risk(trials = trials, risk_score = risk_score)
             
