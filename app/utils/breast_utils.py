@@ -15,54 +15,14 @@ def extract_breast_data(form):
     # Create empty list where processed data will be placed into 
     form_data = []
 
-    # Collect from data from PracticeType up to pdl1_n
-    #for var in breast_columns[0:28]:
-        #var_value = form.get(var)
-        #form_data.append(var_value)
-
-    # Append sex 
-    gender_value = form.get('gender')
-    form_data.append(gender_value)
-
-    # Append race and ethnicity 
-    race_ethnicity = ['White', 'Not Hispanic or Latino']
-    form_data.extend(race_ethnicity)
-
-    # Collect form data from age to p_type 
-    for var in breast_columns[3:5]:
-        var_value = form.get(var)
-        form_data.append(var_value)
-
-    # Append region
-    form_data.append('south')
-
-    for var in breast_columns[6:28]:
+    # Collect form data from gender up to ecog_diagnosis
+    for var in breast_columns[0:26]:
         var_value = form.get(var)
         form_data.append(var_value)
 
     # Convert met_year from string to int and reinsert into list 
-    met_year_int = int(form_data[7])
-    form_data[7] = met_year_int
-
-    # Process insurance data 
-    #insurance = form.getlist('insurance')
-    #processed_insurance = process_insurance(insurance_data = insurance)
-    insurance = [0, 0, 0, 0, 0, 0, 0, 0]
-    form_data.extend(insurance) 
-    
-    # Collect from data from ecog_diagnosis up to bmi_diag
-    #for var in breast_columns[36:39]:
-    #    var_value = form.get(var)
-    #    form_data.append(var_value)
-
-    #form_data.append("0") #bmi_diag_na will never be missing 
-    
-    #weight_pct_change_value = form.get('weight_pct_change')
-    #form_data.extend([weight_pct_change_value, "0", weight_pct_change_value]) #weight_pct_change_na will never be missing and impute weight_pct_change for weight_slope  
-    
-    # Append ecog_diagnosis 
-    ecog_value = form.get('ecog_diagnosis')
-    form_data.append(ecog_value)
+    met_year_int = int(form_data[4])
+    form_data[4] = met_year_int
 
     # Append weight_diag 
     weight_value = form.get('weight_diag')
@@ -81,7 +41,7 @@ def extract_breast_data(form):
 
     form_data.extend(bmi_results)
 
-    # Append weight_pct_change and weight_pct_change_na
+    # Append weight_pct_change, weight_pct_change_na, and weight_slope
     weight_change_value = form.get('weight_pct_change')
 
     if weight_change_value == "":
@@ -95,7 +55,7 @@ def extract_breast_data(form):
 
     lab_diag = []
     # Collect albumin_diag to wbc_diag
-    for var in breast_columns[43:59]:
+    for var in breast_columns[32:48]:
         var_value = form.get(var)
         lab_diag.append(var_value)
 
@@ -120,7 +80,7 @@ def extract_breast_data(form):
 
     lab_sum = []
     # Collect alp_max to wbc_min
-    for var in breast_columns[75:88]:
+    for var in breast_columns[64:77]:
         var_value = form.get(var)
         lab_sum.append(var_value)
 
@@ -143,15 +103,15 @@ def extract_breast_data(form):
     form_data.extend(lab_sum_int) # extend na_labs_sum at the very end
 
     pmh = []
-    # Collect from chf up to other cancer
-    for var in breast_columns[88:122]:
+    # Collect from chf up to other_cancer
+    for var in breast_columns[77:111]:
         var_value = form.get(var)
         pmh.append(var_value)
 
     # Replace None for metastatic_cancer with 1
     pmh[18] = 1  
 
-     # solid_tumor_wihtout_mets = 0 if stage at first diagnosis is IV
+    # solid_tumor_wihtout_mets = 0 if stage at first diagnosis is IV
     if form_data[6] == "IV":
         pmh[19] = 0
     else: 
@@ -164,37 +124,10 @@ def extract_breast_data(form):
     processed_met_site = process_met_site(met_site)
     form_data.extend(processed_met_site)
 
-    # Process ses and convert to float
-    #ses = form.get('ses')
-    #ses_int = float(ses)
-
-    form_data.append(3.0)
-
     # _na column for summary labs added to the end
     form_data.extend(na_labs_sum)
 
     return form_data
-
-def process_insurance(insurance_data):
-    # Define the list of possible insurance options
-    insurance_options = ['medicare',
-                         'medicaid',
-                         'medicare_medicaid',
-                         'commercial',
-                         'patient_assistance',
-                         'other_govt',
-                         'self_pay',
-                         'other']
-
-    # Initialize the result list with zeros
-    result = [0] * len(insurance_options)
-
-    # Iterate through the options and check if they are selected in form_data
-    for i, option in enumerate(insurance_options):
-        if option in insurance_data:
-            result[i] = 1
-
-    return result
 
 def process_met_site(met_site_data):
     # Define the list of possible insurance options
