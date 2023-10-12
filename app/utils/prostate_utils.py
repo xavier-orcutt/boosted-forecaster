@@ -15,15 +15,10 @@ def extract_prostate_data(form):
     # Create list starting with 'M' for male since sex variable will always be male
     #form_data = ['M']
 
-    form_data = ['M', 'white', 'unknown']
+    form_data = ['M']
 
-    # Collect form data from race up to NStage
-    #for var in prostate_columns[1:6]:
-    #    var_value = form.get(var)
-    #    form_data.append(var_value)
-
-    # Colelct form data from age to NStage
-    for var in prostate_columns[3:6]:
+    # Collect form data from age up to NStage
+    for var in prostate_columns[1:4]:
         var_value = form.get(var)
         form_data.append(var_value)
 
@@ -35,7 +30,7 @@ def extract_prostate_data(form):
 
     psa_labs = []
     # Collect PSADiagnosis and PSAMetDiagnosis
-    for var in prostate_columns[9:11]:
+    for var in prostate_columns[7:9]:
         var_value = form.get(var)
         psa_labs.append(var_value)
 
@@ -55,27 +50,21 @@ def extract_prostate_data(form):
     form_data.extend(psa_labs_int)
 
     # Collect data from stage up to crpc_time
-    for var in prostate_columns[11:16]:
+    for var in prostate_columns[9:14]:
         var_value = form.get(var)
         form_data.append(var_value)
 
     # Convert met_year from string to int and reinsert into list 
-    met_year_int = int(form_data[12])
-    form_data[12] = met_year_int
+    met_year_int = int(form_data[10])
+    form_data[10] = met_year_int
 
     # Add psa_na_labs here
     form_data.extend(psa_na_labs)
 
     # Collect data from steroid_diag up to brca_status
-    for var in prostate_columns[18:31]:
+    for var in prostate_columns[16:29]:
         var_value = form.get(var)
         form_data.append(var_value)
-
-    # Process insurance data 
-    #insurance = form.getlist('insurance')
-    #processed_insurance = process_insurance(insurance_data = insurance)
-    insurance = [0, 0, 0, 0, 0, 0, 0, 0]
-    form_data.extend(insurance)
 
     # Append ecog_diagnosis 
     ecog_value = form.get('ecog_diagnosis')
@@ -112,7 +101,7 @@ def extract_prostate_data(form):
 
     lab_diag = []
     # Collect albumin_diag to wbc_diag
-    for var in prostate_columns[46:62]:
+    for var in prostate_columns[36:52]:
         var_value = form.get(var)
         lab_diag.append(var_value)
 
@@ -137,7 +126,7 @@ def extract_prostate_data(form):
 
     lab_sum = []
     # Collect alp_max to wbc_min
-    for var in prostate_columns[78:92]:
+    for var in prostate_columns[68:82]:
         var_value = form.get(var)
         lab_sum.append(var_value)
 
@@ -173,7 +162,7 @@ def extract_prostate_data(form):
 
     pmh = []
     # Collect from chf up to other cancer
-    for var in prostate_columns[94:128]:
+    for var in prostate_columns[84:118]:
         var_value = form.get(var)
         pmh.append(var_value)
 
@@ -194,7 +183,7 @@ def extract_prostate_data(form):
     form_data.extend(processed_met_site)
 
     # Collect prim_treatment and early_adt
-    for var in prostate_columns[137:139]:
+    for var in prostate_columns[127:129]:
         var_value = form.get(var)
         form_data.append(var_value)
 
@@ -202,27 +191,6 @@ def extract_prostate_data(form):
     form_data.extend(na_labs_sum)
 
     return form_data
-
-def process_insurance(insurance_data):
-    # Define the list of possible insurance options
-    insurance_options = ['medicare',
-                         'medicaid',
-                         'medicare_medicaid',
-                         'commercial',
-                         'patient_assistance',
-                         'other_govt',
-                         'self_pay',
-                         'other']
-
-    # Initialize the result list with zeros
-    result = [0] * len(insurance_options)
-
-    # Iterate through the options and check if they are selected in form_data
-    for i, option in enumerate(insurance_options):
-        if option in insurance_data:
-            result[i] = 1
-
-    return result
 
 def process_met_site(met_site_data):
     # Define the list of possible insurance options

@@ -132,7 +132,8 @@ def prostate_patient_info():
         step_func = prostate_model.predict_survival_function(pd.DataFrame(form_data, prostate_columns).T)
         med_surv_est = np.where(step_func[0].x == find_nearest_index(step_func[0].y, 0.50))[0][0]
 
-        if form_data[14] == '0':
+        # If crpc at time of metastatic diagnosis is negative
+        if form_data[12] == '0':
             trials = ['chaarted', 'latitude']
             trial_risk_list = categorize_prostate_risk(trials = trials, risk_score = risk_score)
             
