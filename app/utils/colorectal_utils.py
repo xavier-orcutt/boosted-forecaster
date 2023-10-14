@@ -16,39 +16,13 @@ def extract_colorectal_data(form):
     form_data = []
 
     # Collect form data from gender up to BRAF
-    #for var in colorectal_columns[0:28]:
-    #    var_value = form.get(var)
-    #    form_data.append(var_value)
-
-    # Append sex 
-    form_data.append(form.get('gender'))
-
-    # Append race and ethnicity 
-    race_ethnicity = ['White', 'Not Hispanic or Latino']
-    form_data.extend(race_ethnicity)
-
-    # Collect form data from age to p_type
-    for var in colorectal_columns[3:5]:
-        var_value = form.get(var)
-        form_data.append(var_value)
-
-    # Append region
-    form_data.append('south')
-
-    # Collect form data from stage to BRAF
-    for var in colorectal_columns[6:28]:
+    for var in colorectal_columns[0:25]:
         var_value = form.get(var)
         form_data.append(var_value)
 
     # Convert met_year from string to int and reinsert into list 
-    met_year_int = int(form_data[7])
-    form_data[7] = met_year_int
-
-    # Process insurance data 
-    #insurance = form.getlist('insurance')
-    #processed_insurance = process_insurance(insurance_data = insurance)
-    insurance = [0, 0, 0, 0, 0, 0, 0, 0]
-    form_data.extend(insurance)
+    met_year_int = int(form_data[4])
+    form_data[4] = met_year_int
 
     # Append ecog_diagnosis 
     ecog_value = form.get('ecog_diagnosis')
@@ -85,7 +59,7 @@ def extract_colorectal_data(form):
 
     lab_diag = []
     # Collect albumin_diag to wbc_diag
-    for var in colorectal_columns[43:60]:
+    for var in colorectal_columns[32:49]:
         var_value = form.get(var)
         lab_diag.append(var_value)
 
@@ -110,7 +84,7 @@ def extract_colorectal_data(form):
 
     lab_sum = []
     # Collect alp_max to wbc_min
-    for var in colorectal_columns[77:90]:
+    for var in colorectal_columns[66:79]:
         var_value = form.get(var)
         lab_sum.append(var_value)
 
@@ -134,7 +108,7 @@ def extract_colorectal_data(form):
 
     pmh = []
     # Collect from chf up to other cancer
-    for var in colorectal_columns[90:124]:
+    for var in colorectal_columns[79:113]:
         var_value = form.get(var)
         pmh.append(var_value)
 
@@ -154,37 +128,10 @@ def extract_colorectal_data(form):
     processed_met_site = process_met_site(met_site)
     form_data.extend(processed_met_site)
 
-    # Process ses and convert to float
-    #ses = form.get('ses')
-    #ses_int = float(ses)
-
-    form_data.append(3.0)
-
     # _na column for summary labs added to the end
     form_data.extend(na_labs_sum)
 
     return form_data
-
-def process_insurance(insurance_data):
-    # Define the list of possible insurance options
-    insurance_options = ['medicare',
-                         'medicaid',
-                         'medicare_medicaid',
-                         'commercial',
-                         'patient_assistance',
-                         'other_govt',
-                         'self_pay',
-                         'other']
-
-    # Initialize the result list with zeros
-    result = [0] * len(insurance_options)
-
-    # Iterate through the options and check if they are selected in form_data
-    for i, option in enumerate(insurance_options):
-        if option in insurance_data:
-            result[i] = 1
-
-    return result
 
 def process_met_site(met_site_data):
     # Define the list of possible insurance options

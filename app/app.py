@@ -161,7 +161,8 @@ def colorectal_patient_info():
         step_func = colorectal_model.predict_survival_function(pd.DataFrame(form_data, colorectal_columns).T)
         med_surv_est = np.where(step_func[0].x == find_nearest_index(step_func[0].y, 0.50))[0][0]
 
-        if form_data[24] == 'wild-type':
+        'If KRAS == "wild-type"'
+        if form_data[21] == 'wild-type':
             trials = ['fire3']
             trial_risk_list = categorize_colorectal_risk(trials = trials, risk_score = risk_score)
             
