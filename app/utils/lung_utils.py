@@ -113,8 +113,8 @@ def extract_lung_data(form):
     form_data.extend(lab_sum_int) # extend na_labs_sum at the very end
 
     pmh = []
-    # Collect from chf up to other cancer
-    for var in lung_columns[87:121]:
+    # Collect from chf up to other_cancer
+    for var in lung_columns[80:114]:
         var_value = form.get(var)
         pmh.append(var_value)
 
@@ -122,7 +122,7 @@ def extract_lung_data(form):
     pmh[18] = 1  
 
     # solid_tumor_wihtout_mets = 0 if stage at first diagnosis is IV
-    if form_data[8] == "IV":
+    if form_data[5] == "IV":
         pmh[19] = 0
     else: 
         pmh[19] = 1

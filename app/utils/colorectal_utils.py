@@ -116,7 +116,7 @@ def extract_colorectal_data(form):
     pmh[18] = 1  
 
     # solid_tumor_wihtout_mets = 0 if stage at first diagnosis is IV
-    if form_data[6] == "IV":
+    if form_data[3] == "IV":
         pmh[19] = 0
     else: 
         pmh[19] = 1
