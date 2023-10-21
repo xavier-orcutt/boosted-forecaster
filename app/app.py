@@ -33,7 +33,8 @@ def lung_patient_info():
         step_func = lung_model.predict_survival_function(pd.DataFrame(form_data, lung_columns).T)
         med_surv_est = np.where(step_func[0].x == find_nearest_index(step_func[0].y, 0.50))[0][0]
 
-        if form_data[26] == "positive":
+        #If EGFR is positive: 
+        if form_data[23] == "positive":
             trials = ['flaura']
             trial_risk_list = categorize_lung_risk(trials = trials, risk_score = risk_score)
             
@@ -42,7 +43,8 @@ def lung_patient_info():
                                    bio_status = 'egfr_positive', 
                                    flaura_risk = trial_risk_list[0])
             
-        if form_data[24] != "positive" and form_data[29] == "1-49%":
+        #If EGFR is not positive and pdl1 is...
+        if form_data[23] != "positive" and form_data[26] == "1-49%":
             trials = ['keynote_189', 'keynote_042', 'checkmate_078']
             trial_risk_list = categorize_lung_risk(trials = trials, risk_score = risk_score)
             
@@ -53,7 +55,7 @@ def lung_patient_info():
                                    key042_risk = trial_risk_list[1], 
                                    check_risk = trial_risk_list[2])
         
-        if form_data[24] != "positive" and form_data[29] == "50-100%":
+        if form_data[23] != "positive" and form_data[26] == "50-100%":
             trials = ['keynote_189', 'keynote_024', 'checkmate_078']
             trial_risk_list = categorize_lung_risk(trials = trials, risk_score = risk_score)
             
@@ -64,7 +66,7 @@ def lung_patient_info():
                                    key024_risk = trial_risk_list[1],
                                    check_risk = trial_risk_list[2])
         
-        if form_data[24] != "positive" and (form_data[29] == "0%" or form_data[29] == "unknown"):
+        if form_data[23] != "positive" and (form_data[26] == "0%" or form_data[26] == "unknown"):
             trials = ['keynote_189', 'checkmate_078']
             trial_risk_list = categorize_lung_risk(trials = trials, risk_score = risk_score)
             

@@ -15,46 +15,20 @@ def extract_lung_data(form):
     # Create empty list where processed data will be placed into 
     form_data = []
 
-    # Collect from data from PracticeType up to ROS1
-    #for var in lung_columns[0:29]:
-        #var_value = form.get(var)
-        #form_data.append(var_value)
-
-    # Collect from data from PracticeType up to gender
-    for var in lung_columns[0:2]:
-        var_value = form.get(var)
-        form_data.append(var_value)
-
-    # Append race and ethnicity 
-    race_ethnicity = ['White', 'unknown']
-    form_data.extend(race_ethnicity)
-
-    # Append age 
-    form_data.append(form.get('age'))
-
-    # Append region
-    form_data.append('south')
-
-    # Collect from Histology up to ROS1
-    for var in lung_columns[6:29]:
+    # Collect form data from PracticeType up to ROS1
+    for var in lung_columns[0:26]:
         var_value = form.get(var)
         form_data.append(var_value)
 
     # Convert adv_year from string to int and reinsert into list 
-    adv_year_int = int(form_data[9])
-    form_data[9] = adv_year_int
+    adv_year_int = int(form_data[6])
+    form_data[6] = adv_year_int
 
     # Process PDL1 data
-    pdl1 = form.get('pdl1')  # Get the selected value
+    pdl1 = form.get('pdl1')  
     processed_pdl1 = pdl1_n(pdl1)
-    form_data.append(pdl1)  # Append the original value
+    form_data.append(pdl1)
     form_data.append(processed_pdl1) 
-
-    # Process insurance data 
-    #insurance = form.getlist('insurance')
-    #processed_insurance = process_insurance(insurance_data = insurance)
-    insurance = [0, 0, 0, 0]
-    form_data.extend(insurance)    
 
     # Append ecog_diagnosis 
     ecog_value = form.get('ecog_diagnosis')
@@ -91,7 +65,7 @@ def extract_lung_data(form):
 
     lab_diag = []
     # Collect albumin_diag to wbc_diag
-    for var in lung_columns[42:58]:
+    for var in lung_columns[35:51]:
         var_value = form.get(var)
         lab_diag.append(var_value)
 
@@ -116,7 +90,7 @@ def extract_lung_data(form):
 
     lab_sum = []
     # Collect alp_max to wbc_min
-    for var in lung_columns[74:87]:
+    for var in lung_columns[67:80]:
         var_value = form.get(var)
         lab_sum.append(var_value)
 
@@ -178,21 +152,6 @@ def pdl1_n(pdl1_data):
         pdl1n_value.append('unknown')
     
     return pdl1n_value[0]
-
-def process_insurance(insurance_data):
-    # Define the list of possible insurance options
-    insurance_options = ['commercial', 'medicare', 'medicaid', 'other_insurance']
-
-    # Initialize the result list with zeros
-    result = [0] * len(insurance_options)
-
-    # Iterate through the options and check if they are selected in form_data
-    for i, option in enumerate(insurance_options):
-        if option in insurance_data:
-            result[i] = 1
-
-    return result
-
     
 def process_met_site(met_site_data):
     # Define the list of possible insurance options
