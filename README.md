@@ -1,8 +1,8 @@
-# boosted-forecaster
+# TrialTranslator
 
 ## Introduction
-*Boosted Forecaster* is a web tool that risk stratifies patients with newly diagnosed metastatic cancer using a gradient-boosted survival model. It also provides survival estimates for novel therapies and compares it to randomized clinical trial results. 
+*TrialTranslator* is a web tool that provides overall survival estimates for patients with newly diagnosed metastatic cancer. It also provides survival estimates for novel cancer therapies based on a patient's risk and biomarker status. This tool is intended to assist physicians with treatment decision-making for real-world oncology patients. 
  
- See [here](https://github.com/xavier-orcutt/rct_generalizability_flatiron) for more information on model build and survival estimates. 
+See [here](https://github.com/xavier-orcutt/TrialTransaltor) for more information on model build and survival estimates. 
 
- *Boosted Forecaster* can be accessed at: [boosted-forecaster.com](https://www.boosted-forecaster.com)
+*TrialTranslator* can be accessed at: [trialtranslator.com](https://www.trialtranslator.com)
