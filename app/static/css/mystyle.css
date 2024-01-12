@@ -14,6 +14,16 @@ body {
     margin: 3rem 10rem; 
 }
 
+/* Media query for screens with a maximum width of 768px (typical for phones) */
+@media (max-width: 768px) {
+    .header {
+        font-size: 24px; 
+      }
+    body {
+        margin: 1rem; 
+    }
+}
+
 p {  
     font-family: 'Georgia', serif;  
     font-size: 16px;
@@ -21,13 +31,6 @@ p {
     display: block;
     line-height: 1.5;
 }  
-
-/* Media query for screens with a maximum width of 768px (typical for phones) */
-@media (max-width: 768px) {
-    body {
-        margin: 1rem; 
-    }
-}
 
 h2 {  
     font-family: 'Montserrat', 'Helvetica', sans-serif;  
