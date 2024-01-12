@@ -16,7 +16,7 @@ body {
 
 /* Media query for screens with a maximum width of 768px (typical for phones) */
 @media (max-width: 768px) {
-    .header {
+    header {
         font-size: 24px; 
       }
     body {
