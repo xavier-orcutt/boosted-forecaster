@@ -11,7 +11,29 @@ header {
 }
 
 body {
-    margin: 3rem 10rem; 
+    margin: 3rem 10rem 3rem 10rem;
+}
+
+p {  
+    font-family: 'Georgia', serif;  
+    font-size: 16px;
+    color: rgb(62, 67, 73);
+    display: block;
+    line-height: 1.5;
+}  
+
+footer {
+    position: absolute;
+    bottom: 0;
+    padding: 5px; 
+    padding-right: 10px
+}
+
+footer p { 
+    text-align: center;
+    font-size: 10px;
+    color: rgb(95, 102, 111);
+    line-height: 1.5;
 }
 
 /* Media query for screens with a maximum width of 768px (typical for phones) */
@@ -23,14 +45,6 @@ body {
         margin: 1rem; 
     }
 }
-
-p {  
-    font-family: 'Georgia', serif;  
-    font-size: 16px;
-    color: rgb(62, 67, 73);
-    display: block;
-    line-height: 1.5;
-}  
 
 h2 {  
     font-family: 'Montserrat', 'Helvetica', sans-serif;  
@@ -188,6 +202,10 @@ select[name="GleasonScore"] {
 
 .italic {
     font-style: italic;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 .med_surv_estimate {

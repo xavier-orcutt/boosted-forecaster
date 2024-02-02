@@ -24,7 +24,26 @@
   
   <body>
     <header>
-      <h1>Come back later</h1>
+      <h1>TrialTranslator</h1>
     </header>
+    
+    <p><span class="italic">TrialTranslator</span> is a webtool that provides overall survival estimates for patients with newly diagnosed metastatic cancer using a cancer-specific gradient-boosted survival model. It also provides survival estimates for novel cancer therapies based on a patient's risk and biomarker status. <span class="bold">This tool is meant to be used in research and is not yet validated for clinical decision support.</span></p>
+
+    <p>The open source Python code is available on <a href = "https://github.com/xavier-orcutt/TrialTranslator">GitHub</a>.</p>
+    
+    <h2>Select cancer type:</h2>
+    <form class="cancer_type">
+      <input type="radio" name="cancer" value="lung" checked="checked"> Advanced NSCLC<br>
+      <input type="radio" name="cancer" value="breast"> Metastatic Breast Cancer<br>
+      <input type="radio" name="cancer" value="prostate"> Metastatic Prostate Cancer<br>
+      <input type="radio" name="cancer" value="colorectal"> Metastatic Colorectal Cancer<br>
+      <br>
+      <input type="button" value="Next" onclick="redirectToForm()">
+    </form>
+
+    <footer>
+        <p><span class='bold'>Disclaimer</span>: The research presented on this website was conducted by the University of Pennsylvania. The website has not undergone evaluation by the FDA as a clinical decision support tool. In addition, it has not been retrained for recent developments in the standard of care. Please be aware the model and its performance are not regularly monitored in accordance with any performance metric.</p>
+    </footer>
+
   </body>
 </html>
