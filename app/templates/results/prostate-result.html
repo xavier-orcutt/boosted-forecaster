@@ -28,9 +28,9 @@
             <h1>Prostate Results</h1>
         </header>
 
-        <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p>
+        <!-- <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p> -->
 
-        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
+        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their mortality risk and biomarker status can be found below.</p>
         
         <!-- CASTRATE SENSITIVE -->
         {% if bio_status == "hspc" %}
