@@ -134,17 +134,19 @@
         </div>
         {% endif %}
 
-        <!-- CASTRATE RESISTANt -->
+        <!-- CASTRATE RESISTANT -->
         {% if bio_status == "crpc" %}
         <div class="section-box">
             <p class="empty">No treatment survival estimates available for patients with castrate-resistant disease.</p>
         </div>
         {% endif %}
 
-        <div class="space-result"></div>
-        <button class="back-button" onclick="window.location.href='/prostate'">Back to form</button>
-        <button class="home-button" onclick="window.location.href='/'">Home</button>
-        <script src="../../static/scripts/myscripts.js"></script>
+        <form>
+            <div class="space-result"></div>
+            <button class="back-button" onclick="window.location.href='/prostate'">Back to form</button>
+            <button class="home-button" onclick="window.location.href='/'">Home</button>
+            <script src="../../static/scripts/myscripts.js"></script>
+        </form>
 
     </body>
 </html>
