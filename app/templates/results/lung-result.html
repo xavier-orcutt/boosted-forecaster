@@ -11,7 +11,7 @@
       gtag('config', 'G-TJH2RE0DE4');
     </script>
 
-    <title>NSCLC Results</title>
+    <title>aNSCLC Results</title>
     <meta charset="UTF-8">
     <meta name="description" content="Lung risk result">
     <meta name="author" content="Xavier Orcutt">
@@ -25,22 +25,22 @@
     
     <!-- Header -->
     <header>
-        <h1>NSCLC Results</h1>
+        <h1>Advanced NSCLC Results</h1>
     </header>
     
     <!-- <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p> -->
 
-    <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
+    <p>Survival data for potentially relevant therapies, based on this patient's biomarker profile, are shown below.</p>
   
     <!-- EGFR POSITIVE -->
     {% if bio_status == "egfr_positive" %}
     <div class="section-box">
       <p class="treatment"> First-line osimertinib or standard EGFR-TKI</p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ flaura_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ flaura_risk }} </p>
       
       {% if flaura_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is osimertinib expected to offer a progression-free survival advantage over standard EGFR-TKI?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is osimertinib expected to offer a progression-free survival advantage over standard EGFR-TKI?</span> Yes</p>
 
       <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
@@ -51,7 +51,7 @@
       </div>
 
       {% elif flaura_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is osimertinib expected to offer a progression-free survival advantage over standard EGFR-TKI?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is osimertinib expected to offer a progression-free survival advantage over standard EGFR-TKI?</span> Yes</p>
 
       <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
@@ -62,7 +62,7 @@
       </div>
        
       {% elif flaura_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is osimertinib expected to offer a progression-free survival advantage over standard EGFR-TKI?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is osimertinib expected to offer a progression-free survival advantage over standard EGFR-TKI?</span> Yes</p>
 
       <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1713137">FLAURA</a> trial:</p>
       <div class="collapsible">
@@ -89,10 +89,10 @@
     <div class="section-box">
       <p class="treatment"> First-line pembrolizumab plus chemotherapy or chemotherapy</p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ key189_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ key189_risk }} </p>
       
       {% if key189_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -103,7 +103,7 @@
       </div>
 
       {% elif key189_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -114,7 +114,7 @@
       </div>
        
       {% elif key189_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -139,10 +139,10 @@
     <div class="section-box">
       <p class="treatment"> First-line pembrolizumab or chemotherapy in low PDL1</p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ key042_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ key042_risk }} </p>
 
       {% if key042_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
@@ -153,7 +153,7 @@
       </div>
 
       {% elif key042_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
@@ -164,7 +164,7 @@
       </div>
        
       {% elif key042_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab expected to offer a survival advantage over chemotherapy?</span> No</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)32409-7/fulltext">KEYNOTE-042</a> trial:</p>
       <div class="collapsible">
@@ -189,10 +189,10 @@
     <div class="section-box">
       <p class="treatment"> Second-line nivolumab or docetaxel </p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ check_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ check_risk }} </p>
 
       {% if check_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -203,7 +203,7 @@
       </div>
 
       {% elif check_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -214,7 +214,7 @@
       </div>
        
       {% elif check_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -241,10 +241,10 @@
     <div class="section-box">
       <p class="treatment"> First-line pembrolizumab plus chemotherapy or chemotherapy</p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ key189_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ key189_risk }} </p>
       
       {% if key189_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -255,7 +255,7 @@
       </div>
 
       {% elif key189_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -266,7 +266,7 @@
       </div>
        
       {% elif key189_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -291,10 +291,10 @@
     <div class="section-box">
       <p class="treatment"> First-line pembrolizumab or chemotherapy in high PDL1</p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ key024_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ key024_risk }} </p>
 
       {% if key024_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a progression-free survival advantage over chemotherapy?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab expected to offer a progression-free survival advantage over chemotherapy?</span> Yes</p>
 
       <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
@@ -305,7 +305,7 @@
       </div>
 
       {% elif key024_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a progression-free survival advantage over chemotherapy?</span> No</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab expected to offer a progression-free survival advantage over chemotherapy?</span> No</p>
 
       <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
@@ -316,7 +316,7 @@
       </div>
        
       {% elif key024_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab expected to offer a progression-free survival advantage over chemotherapy?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab expected to offer a progression-free survival advantage over chemotherapy?</span> Yes</p>
 
       <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1606774">KEYNOTE-024</a> trial:</p>
       <div class="collapsible">
@@ -341,10 +341,10 @@
     <div class="section-box">
       <p class="treatment"> Second-line nivolumab or docetaxel </p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ check_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ check_risk }} </p>
 
       {% if check_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -355,7 +355,7 @@
       </div>
 
       {% elif check_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -366,7 +366,7 @@
       </div>
        
       {% elif check_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -393,10 +393,10 @@
     <div class="section-box">
       <p class="treatment"> First-line pembrolizumab plus chemotherapy or chemotherapy</p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ key189_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ key189_risk }} </p>
       
       {% if key189_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -407,7 +407,7 @@
       </div>
 
       {% elif key189_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -418,7 +418,7 @@
       </div>
        
       {% elif key189_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is pembrolizumab plus chemotherapy expected to offer a survival advantage over chemotherapy alone?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1801005">KEYNOTE-189</a> trial:</p>
       <div class="collapsible">
@@ -443,10 +443,10 @@
     <div class="section-box">
       <p class="treatment"> Second-line nivolumab or docetaxel </p>
 
-      <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ check_risk }} </p>
+      <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ check_risk }} </p>
 
       {% if check_risk == "Low" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -457,7 +457,7 @@
       </div>
 
       {% elif check_risk == "Medium" %}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -468,7 +468,7 @@
       </div>
        
       {% elif check_risk == "High"%}
-      <p><span class="risk-benefit">Based on the patient's risk, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
+      <p><span class="risk-benefit">Based on the patient's risk phenotype, is second-line nivolumab expected to offer a survival advantage over docetaxel?</span> Yes</p>
 
       <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://pubmed.ncbi.nlm.nih.gov/30659987/">CHECKMATE-078</a> trial:</p>
       <div class="collapsible">
@@ -491,7 +491,7 @@
     <!-- ALK POSITIVE -->
     {% if bio_status == 'alk_positive' %}
     <div class="section-box">
-      <p class="empty">No survival estimates available for ALK inhibitors.</p>
+      <p class="empty">No survival estimates are available for ALK inhibitors.</p>
     </div>
     {% endif %}
 

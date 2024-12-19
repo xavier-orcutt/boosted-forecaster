@@ -30,7 +30,7 @@
 
         <!-- <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p> -->
 
-        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
+        <p>Survival data for potentially relevant therapies, based on this patient's biomarker profile, are shown below.</p>
         
         <!-- HR POSITIVE -->
         {% if bio_status == "hr_positive" %}
@@ -39,10 +39,10 @@
         <div class="section-box">
             <p class="treatment">First-line palbociclib plus letrozole or letrozole in HR-positive disease</p>
 
-            <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ paloma2_risk }} </p>
+            <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ paloma2_risk }} </p>
             
             {% if paloma2_risk == "Low" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus letrozole expected to offer a progression-free survival advantage over letrozole alone?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is palbociclib plus letrozole expected to offer a progression-free survival advantage over letrozole alone?</span> Yes</p>
 
             <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
@@ -53,7 +53,7 @@
             </div>
         
             {% elif paloma2_risk == "Medium" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus letrozole expected to offer a progression-free survival advantage over letrozole alone?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is palbociclib plus letrozole expected to offer a progression-free survival advantage over letrozole alone?</span> Yes</p>
 
             <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
@@ -64,7 +64,7 @@
             </div>
        
             {% elif paloma2_risk == "High"%}
-            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus letrozole expected to offer a progression-free survival advantage over letrozole alone?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is palbociclib plus letrozole expected to offer a progression-free survival advantage over letrozole alone?</span> No</p>
 
             <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/NEJMoa1607303">PALOMA-2</a> trial:</p>
             <div class="collapsible">
@@ -89,10 +89,10 @@
         <div class="section-box">
             <p class="treatment">Late-line palbociclib plus fulvestrant or fulvestrant in HR-positive disease</p>
 
-            <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ paloma3_risk }} </p>
+            <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ paloma3_risk }} </p>
                         
             {% if paloma3_risk == "Low" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus fulvestrant expected to offer a progression-free survival advantage over fulvestrant alone?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is palbociclib plus fulvestrant expected to offer a progression-free survival advantage over fulvestrant alone?</span> Yes</p>
 
             <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
@@ -103,7 +103,7 @@
             </div>
         
             {% elif paloma3_risk == "Medium" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus fulvestrant expected to offer a progression-free survival advantage over fulvestrant alone?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is palbociclib plus fulvestrant expected to offer a progression-free survival advantage over fulvestrant alone?</span> Yes</p>
 
             <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
@@ -114,7 +114,7 @@
             </div>
        
             {% elif paloma3_risk == "High"%}
-            <p><span class="risk-benefit">Based on the patient's risk, is palbociclib plus fulvestrant expected to offer a progression-free survival advantage over fulvestrant alone?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is palbociclib plus fulvestrant expected to offer a progression-free survival advantage over fulvestrant alone?</span> No</p>
 
             <p>Click below for more information on real-world progression-free survival (PFS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1810527">PALOMA-3</a> trial:</p>
             <div class="collapsible">
@@ -139,10 +139,10 @@
         <div class="section-box">
             <p class="treatment">First-line pertuzumab, trastuzumab, and docetaxel or trastuzumab and docetaxel in HER2-positive disease</p>
 
-            <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ cleopatra_risk }} </p>
+            <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ cleopatra_risk }} </p>
 
             {% if cleopatra_risk == "Low" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> Yes</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
@@ -153,7 +153,7 @@
             </div>
 
             {% elif cleopatra_risk == "Medium" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> No</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
@@ -164,7 +164,7 @@
             </div>
        
             {% elif cleopatra_risk == "High"%}
-            <p><span class="risk-benefit">Based on the patient's risk, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is the addition of pertuzumab to trastuzumab and docetaxl expected to offer a survival advantage?</span> No</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1413513">CLEOPATRA</a> trial:</p>
             <div class="collapsible">
@@ -187,7 +187,7 @@
         <!-- TRIPLE NEGATIVE -->
         {% if bio_status == 'triple_negative' %}
         <div class="section-box">
-            <p class="empty">No treatment survival estimates available for patients with triple negative disease or unknown HER2 status.</p>
+            <p class="empty">No treatment survival estimates are available for patients with triple negative disease or unknown HER2 status.</p>
         </div>
         {% endif %}
 

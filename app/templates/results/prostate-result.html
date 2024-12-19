@@ -30,7 +30,7 @@
 
         <!-- <p>This patient's estimated median overall survival: <span class="med_surv_estimate"> {{ med_surv_est }} days </span></p> -->
 
-        <p>Real-world survival estimates for therapies that could be relevant to this patient based on their biomarker status can be found below.</p>
+        <p>Survival data for potentially relevant therapies, based on this patient's biomarker profile, are shown below.</p>
         
         <!-- CASTRATE SENSITIVE -->
         {% if bio_status == "hspc" %}
@@ -39,10 +39,10 @@
         <div class="section-box">
             <p class="treatment">First-line docetaxel plus ADT or ADT</p>
 
-            <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ chaarted_risk }} </p>
+            <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ chaarted_risk }} </p>
             
             {% if chaarted_risk == "Low" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
@@ -53,7 +53,7 @@
             </div>
         
             {% elif chaarted_risk == "Medium" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
@@ -64,7 +64,7 @@
             </div>
        
             {% elif chaarted_risk == "High"%}
-            <p><span class="risk-benefit">Based on the patient's risk, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is docetaxel plus ADT expected to offer a survival advantage over ADT alone?</span> Yes</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1503747">CHAARTED</a> trial:</p>
             <div class="collapsible">
@@ -89,10 +89,10 @@
         <div class="section-box">
             <p class="treatment">First-line abiraterone plus ADT or ADT</p>
 
-            <p><span class="risk-benefit">The patient's risk group when compared to others in the real-world who received one of the above therapies is:</span> {{ latitude_risk }} </p>
+            <p><span class="risk-benefit">Compared to other patients who received these therapies, this patient's risk phenotype is:</span> {{ latitude_risk }} </p>
 
             {% if latitude_risk == "Low" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
@@ -103,7 +103,7 @@
             </div>
         
             {% elif latitude_risk == "Medium" %}
-            <p><span class="risk-benefit">Based on the patient's risk, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
@@ -114,7 +114,7 @@
             </div>
        
             {% elif latitude_risk == "High"%}
-            <p><span class="risk-benefit">Based on the patient's risk, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
+            <p><span class="risk-benefit">Based on the patient's risk phenotype, is abiraterone plus ADT expected to offer a survival advantage over ADT alone?</span> No</p>
 
             <p>Click below for more information on real-world overall survival (OS) and how it compares to patients in the <a href = "https://www.nejm.org/doi/full/10.1056/nejmoa1704174">LATITUDE</a> trial:</p>
             <div class="collapsible">
@@ -137,7 +137,7 @@
         <!-- CASTRATE RESISTANt -->
         {% if bio_status == "crpc" %}
         <div class="section-box">
-            <p class="empty">No treatment survival estimates available for patients with castrate-resistant disease.</p>
+            <p class="empty">No treatment survival estimates are available for patients with castrate-resistant disease.</p>
         </div>
         {% endif %}
 
